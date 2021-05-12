@@ -832,7 +832,7 @@ router.post('/antigen/v2/action2/antibody-test', function (req, res) {
     res.redirect('/antigen/v2/global-registration/fingerprick-test')
   }
   else  {
-    res.redirect('/antigen/v2/global-registration/cannot-get-test')
+    res.redirect('/antigen/v2/global-registration/check-your-answers')
   }
 })
 
