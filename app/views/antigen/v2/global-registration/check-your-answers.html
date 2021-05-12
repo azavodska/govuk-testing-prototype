@@ -396,6 +396,7 @@
               </a>
             </dd>
           </div>
+          {% if data['antibody-test'] == "Yes" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Able to do test
@@ -416,6 +417,7 @@
               Delivery address
             </dt>
             <dd class="govuk-summary-list__value">
+              {{ data['delivery-address-postcode'] }}
               {% if data['delivery-address-antibody'] and data['delivery-address-antibody'] !== "5 addresses found" %}
               {{ data['delivery-address-antibody'] }}
               {% else %}
@@ -430,6 +432,7 @@
               </a>
             </dd>
           </div>
+          {% endif %}
           {% endif %}
         </dl>
 

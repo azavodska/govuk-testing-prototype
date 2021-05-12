@@ -394,6 +394,7 @@
               </a>
             </dd>
           </div>
+          {% if data['antibody-test-person-1'] == "Yes" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Able to do test
@@ -402,7 +403,7 @@
               {{ data['fingerprick-test-person-1'] or 'Yes' }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="/antigen/{{version}}/global-registration/fingerprick-tes-person-1t">
+              <a href="/antigen/{{version}}/global-registration/fingerprick-test-person-1">
                 Change
                 <span class="govuk-visually-hidden">fingerprick test</span>
               </a>
@@ -414,20 +415,25 @@
               Delivery address
             </dt>
             <dd class="govuk-summary-list__value">
+
+              {{ data['delivery-address-person-1-postcode'] }}
+
               {% if data['delivery-address-antibody'] and data['delivery-address-antibody'] !== "5 addresses found" %}
               {{ data['delivery-address-antibody'] }}
               {% else %}
                 {{ data['delivery-address-line-1-antibody'] or '5 Souterhead Road'}}<br>
                 {{ data['delivery-postcode-antibody'] or 'LS1 3BE' }}
               {% endif %}
+
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="/antigen/{{version}}/global-registration/delivery-address">
+              <a href="/antigen/{{version}}/global-registration/delivery-postcode-person-1">
                 Change
                 <span class="govuk-visually-hidden">delivery address</span>
               </a>
             </dd>
           </div>
+          {% endif %}
           {% endif %}
         </dl>
 
