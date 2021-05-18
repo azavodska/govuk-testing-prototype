@@ -10,6 +10,28 @@ function loadJSONFromFile(fileName, path = "app/data/") {
   return JSON.parse(jsonFile) // Return JSON as object
 }
 
+router.post('/antigen/v1/action3/reason-for-test-option-2', function (req, res) {
+  let reason = req.session.data['reason-for-test']
+  let whoAsked = req.session.data['who-asked-for-test']
+  if (reason == "None of the above"){
+    res.redirect('/antigen/v1/refer-and-triage/cannot-have-test')
+  } else if (whoAsked == "Contact tracers told me to get a test"){
+    res.redirect('/antigen/v1/refer-and-triage/contact-tracing-code')
+  } else {
+    res.redirect('/antigen/v1/refer-and-triage/')
+  }
+
+})
+
+router.post('/antigen/v1/action3/1-have-you-travelled-overseas-person-1', function (req, res) {
+  let OverseasTravel = req.session.data['have-you-travelled-overseas-person-1']
+  if (OverseasTravel == "No"){
+    res.redirect('/antigen/v1/global-registration/previous-infection-person-1')
+  } else {
+    res.redirect('/antigen/v1/global-registration/1-which-countries-travelled-to-person-1')
+  }
+
+})
 
 
 // Version 2 - Antigen Refer and Triage - Mobile number route
@@ -194,9 +216,10 @@ router.post('/antigen/v2/action3/reason-for-test', function (req, res) {
 
 router.post('/antigen/v2/action3/reason-for-test-option-2', function (req, res) {
   let reason = req.session.data['reason-for-test']
+  let whoAsked = req.session.data['who-asked-for-test']
   if (reason == "None of the above"){
     res.redirect('/antigen/v2/refer-and-triage/cannot-have-test')
-  } else if (reason == "I have been in contact with someone who's tested positive for coronavirus"){
+  } else if (whoAsked == "Contact tracers told me to get a test"){
     res.redirect('/antigen/v2/refer-and-triage/contact-tracing-code')
   } else {
     res.redirect('/antigen/v2/refer-and-triage/eligible')
@@ -844,7 +867,7 @@ router.post('/antigen/v2/action2/fingerprick-test', function (req, res) {
     res.redirect('/antigen/v2/global-registration/delivery-postcode')
   }
   else  {
-    res.redirect('/antigen/v2/global-registration/cannot-get-test')
+    res.redirect('/antigen/v2/site-appointment-booking/find-test-site')
   }
 })
 
