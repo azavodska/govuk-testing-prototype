@@ -56,10 +56,6 @@ router.post('/tutorials-and-examples', function (req, res) {
   res.redirect('tutorials-and-examples')
 })
 
-router.get('/making-pages', function (req, res) {
-  res.redirect('/docs/make-first-prototype/create-pages')
-})
-
 // Example routes
 
 // Passing data into a page
@@ -80,6 +76,14 @@ router.post('/examples/branching/over-18-answer', function (req, res) {
   } else {
     res.redirect('/docs/examples/branching/over-18')
   }
+})
+
+router.get('/making-pages', function (req, res) {
+  res.redirect('/docs/make-first-prototype/create-pages')
+})
+
+router.get('/add-questions', function (req, res) {
+  res.redirect('/docs/make-first-prototype/use-components')
 })
 
 module.exports = router

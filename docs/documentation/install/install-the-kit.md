@@ -12,6 +12,7 @@ We recommend keeping all your prototypes in one folder called `prototypes`.
 
 Create a folder called `prototypes` in your `Documents` folder.
 
+
 ### Unzip the kit and move it
 
 Unzip the kit you downloaded - you should end up with a folder called `govuk-prototype-kit` followed by the version number.

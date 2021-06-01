@@ -18,25 +18,23 @@
 
 8. Copy `app/assets/sass/patterns` from the unzipped folder to your prototype.
 
-9. Copy `app/assets/sass/components` from the unzipped folder to your prototype.
+9. Open the `app/assets/sass/application.scss` file in the unzipped folder.
 
-10. Open the `app/assets/sass/application.scss` file in the unzipped folder.
+10. Copy everything down to `// Add extra styles here`, then paste it into the `app/assets/sass/application.scss` file in your prototype so it replaces everything above `// Add extra styles here`.
 
-11. Copy everything down to `// Add extra styles here`, then paste it into the `app/assets/sass/application.scss` file in your prototype so it replaces everything above `// Add extra styles here`.
+11. Save the updated `app/assets/sass/application.scss` file in your prototype.
 
-12. Save the updated `app/assets/sass/application.scss` file in your prototype.
-
-13. Check the [latest Prototype Kit release note](https://github.com/alphagov/govuk-prototype-kit/releases/latest) and follow any guidance on updating your prototype.
+12. Check the [latest Prototype Kit release note](https://github.com/alphagov/govuk-prototype-kit/releases/latest) and follow any guidance on updating your prototype.
 
     If your prototype has not been updated for a long time, you should also follow any guidance in [release notes](https://github.com/alphagov/govuk-prototype-kit/releases) between the version you're updating from and the latest version. You can find out the version you're updating from in the `VERSION.txt` file in your backup folder.
 
-14. In your [terminal](https://govuk-prototype-kit.herokuapp.com/docs/install/requirements.md#terminal), `cd` to your prototype folder.
+13. In your [terminal](/docs/install/requirements.md#terminal), `cd` to your prototype folder.
 
-15. Run `npm install`.
+14. Run `npm install`.
 
     This may take up to a minute. You can ignore any lines in the log that start with `WARN`.
 
-16. [Run the kit and check it works](/docs/install/run-the-kit).
+15. [Run the kit and check it works](/docs/install/run-the-kit).
 
 If your prototype does not work, compare the new `package.json` file to the `package.json` file in the backup you made in step 3. Run `npm install PACKAGE-NAME` for each package that's missing in the new file.
 
