@@ -1,5 +1,5 @@
 {% set version = "v2" %}
-{% set pageTitle = "Does the person travel to nursery, work or a place of education?" %}
+{% set pageTitle = "Which of the following is recorded on the person's medical record?" %}
 
 {% extends "includes/layout.html" %}
 
@@ -15,7 +15,10 @@
     </p>
   </div> 
 
-  <a class="govuk-back-link" href="/antigen/{{version}}/global-registration/ethnic-group">Back</a>
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.go(-1);"
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -24,47 +27,51 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/antigen/{{version}}/action3/currently-in-work" method="post">
-
+      <form action="/antigen/{{version}}/global-registration/ethnic-group" method="post">
+      
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="currently-in-work-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="gender-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">
-                {{ pageTitle }}
+              <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+                {{ pageTitle }} test
               </h1>
             </legend>
-            <span id="currently-in-work-hint" class="govuk-body">
-              This will help us understand more about the spread of the virus.
+            <span id="gender-hint" class="govuk-body">
+              We are asking this question so we can find the person's GP record and save their result there.
             </span>
-            <div class="govuk-radios govuk-!-margin-top-5">
+            <div class="govuk-radios govuk-!-margin-top-6" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="currently-in-work-1" name="currently-in-work" type="radio" value="Yes - they travel to a workplace" {{ checked("currently-in-work", "Yes - they travel to a workplace") }}>
-                <label class="govuk-label govuk-radios__label" for="currently-in-work-1">
-                  Yes - they travel to a workplace
+                <input class="govuk-radios__input" id="gender-2" name="gender" type="radio" value="Male" {{ checked("gender", "Male") }}>
+                <label class="govuk-label govuk-radios__label" for="gender-2">
+                  Male
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="currently-in-work-2" name="currently-in-work" type="radio" value="Yes - they go to nursery, school, college or university" {{ checked("currently-in-work", "Yes - they go to nursery, school, college or university") }}>
-                <label class="govuk-label govuk-radios__label" for="currently-in-work-2">
-                  Yes - they go to nursery, school, college or university
+                <input class="govuk-radios__input" id="gender-1" name="gender" type="radio" value="Female" {{ checked("gender", "Female") }}>
+                <label class="govuk-label govuk-radios__label" for="gender-1">
+                  Female
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="currently-in-work-3" name="currently-in-work" type="radio" value="No" {{ checked("currently-in-work", "No") }}>
-                <label class="govuk-label govuk-radios__label" for="currently-in-work-3">
-                  No
-                </label>
-              </div>
-              <p class="govuk-body">or</p>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="currently-in-work-3" name="currently-in-work" type="radio" value="Prefer not to say" {{ checked("currently-in-work", "Prefer not to say") }}>
-                <label class="govuk-label govuk-radios__label" for="currently-in-work-3">
-                  Prefer not to say / not applicable
+                <input class="govuk-radios__input" id="gender-3" name="gender" type="radio" value="Other / Not specified / I do not know" {{ checked("gender", "Other / Not specified / I do not know") }}>
+                <label class="govuk-label govuk-radios__label" for="gender-3">
+                  Other / Not specified / I do not know
                 </label>
               </div>
             </div>
           </fieldset>
-        </div>  
+        </div>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Why are there not more options?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            We understand there may be other ways a person may answer this question. In this case, we just need to know what is on the person's GP record.
+          </div>
+        </details>
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
