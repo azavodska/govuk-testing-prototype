@@ -1,5 +1,5 @@
 {% set version = "v2" %}
-{% set pageTitle = "Which of the following is recorded on the person's medical record?" %}
+{% set pageTitle = "Does the person travel to nursery, work or a place of education?" %}
 
 {% extends "includes/layout.html" %}
 
@@ -15,10 +15,7 @@
     </p>
   </div> 
 
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.go(-1);"
-  }) }}
+  <a class="govuk-back-link" href="/antigen/{{version}}/global-registration/ethnic-group">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -27,17 +24,17 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/antigen/{{version}}/global-registration/ethnic-group" method="post">
+      <form action="/antigen/{{version}}/global-registration/country" method="post">
       
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="gender-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="currently-in-work-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
-                {{ pageTitle }} test
+                {{ pageTitle }}
               </h1>
             </legend>
-            <span id="gender-hint" class="govuk-body">
-              We are asking this question so we can find the person's GP record and save their result there.
+            <span id="currently-in-work-hint" class="govuk-body">
+              This will help us understand more about the spread of the virus.
             </span>
             <div class="govuk-radios govuk-!-margin-top-6" data-module="govuk-radios">
               <div class="govuk-radios__item">
