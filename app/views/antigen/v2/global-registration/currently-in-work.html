@@ -38,37 +38,33 @@
             </span>
             <div class="govuk-radios govuk-!-margin-top-6" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="gender-2" name="gender" type="radio" value="Male" {{ checked("gender", "Male") }}>
-                <label class="govuk-label govuk-radios__label" for="gender-2">
-                  Male
+                <input class="govuk-radios__input" id="currently-in-work-1" name="currently-in-work" type="radio" value="Yes - they travel to a workplace" {{ checked("currently-in-work", "Yes - they travel to a workplace") }}>
+                <label class="govuk-label govuk-radios__label" for="currently-in-work-1">
+                  Yes - they travel to a workplace
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="gender-1" name="gender" type="radio" value="Female" {{ checked("gender", "Female") }}>
-                <label class="govuk-label govuk-radios__label" for="gender-1">
-                  Female
+                <input class="govuk-radios__input" id="currently-in-work-2" name="currently-in-work" type="radio" value="Yes - they go to nursery, school, college or university" {{ checked("currently-in-work", "Yes - they go to nursery, school, college or university") }}>
+                <label class="govuk-label govuk-radios__label" for="currently-in-work-2">
+                  Yes - they go to nursery, school, college or university
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="gender-3" name="gender" type="radio" value="Other / Not specified / I do not know" {{ checked("gender", "Other / Not specified / I do not know") }}>
-                <label class="govuk-label govuk-radios__label" for="gender-3">
-                  Other / Not specified / I do not know
+                <input class="govuk-radios__input" id="currently-in-work-3" name="currently-in-work" type="radio" value="No" {{ checked("currently-in-work", "No") }}>
+                <label class="govuk-label govuk-radios__label" for="currently-in-work-3">
+                  No
+                </label>
+              </div>
+              <p class="govuk-body">or</p>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="currently-in-work-4" name="currently-in-work" type="radio" value="Prefer not to say" {{ checked("currently-in-work", "Prefer not to say") }}>
+                <label class="govuk-label govuk-radios__label" for="currently-in-work-4">
+                  Prefer not to say / not applicable
                 </label>
               </div>
             </div>
           </fieldset>
         </div>
-
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Why are there not more options?
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            We understand there may be other ways a person may answer this question. In this case, we just need to know what is on the person's GP record.
-          </div>
-        </details>
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
