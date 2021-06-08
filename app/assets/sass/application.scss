@@ -1,6 +1,5 @@
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
-$govuk-new-link-styles: true;
 
 // We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
 $govuk-assets-path: '/govuk/assets/';
@@ -14,6 +13,11 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/step-by-step-related";
 @import "patterns/task-list";
 @import "patterns/related-items";
+@import "patterns/bulk-upload";
+
+// Components that aren't in Frontend
+@import "components/cookie-banner";
+@import "components/dev-mode";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
@@ -491,6 +495,55 @@ a.card__body {
 
 .scan-barcode {
   width: 100%;
+}
+
+.proto-action,
+.proto-error {
+  position: fixed;
+  right: 0;
+  bottom: 60px;
+  width: 114px;
+  height: 35px;
+  background-color: #ffeb3b;
+  box-shadow: -7px -7px 12px -7px rgba(0,0,0,0.85);
+  a {
+    text-decoration: none;
+    display: block;
+  }
+}
+
+.proto-error {
+  bottom: 0;
+}
+
+.proto-action-icon,
+.proto-error-icon {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('/public/images/sms-sent.svg');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  margin-top: 7px;
+  margin-left: 7px;
+}
+
+.proto-error-icon {
+  background-image: url('/public/images/alert.svg');
+  background-size: 20px;
+}
+
+.proto-action-text,
+.proto-error-text {
+  @include govuk-font(14);
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 9px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .proto-action.big {
