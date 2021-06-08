@@ -70,32 +70,6 @@ router.post('/antigen/v2/action3/do-you-have-symptoms-person-1', function (req, 
 
 // Version 2 - Antigen Refer and Triage - When did symptoms start route
 
-// router.post('/antigen/v2/action3/when-did-symptoms-start', function (req, res) {
-//   let yearSymptomsStarted = req.session.data['symptoms-start-date-year']
-//   if (yearSymptomsStarted != "2021"){
-//     res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start-error')
-//   } else {
-//     res.redirect('/antigen/v2/refer-and-triage/government-pilot')
-//   }
-
-// })
-
-// Version 2 - Antigen Refer and Triage - When did symptoms start error route
-
-// router.post('/antigen/v2/action3/when-did-symptoms-start-error', function (req, res) {
-//   let yearSymptomsStarted = req.session.data['symptoms-start-date-year']
-//   if (yearSymptomsStarted != "2021"){
-//     res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start-error')
-//   } else {
-//     res.redirect('/antigen/v2/refer-and-triage/government-pilot')
-//   }
-
-// })
-
-// Version 2 - Antigen Refer and Triage - When did symptoms start option 2 route
-
-// Version 1 - Antigen Refer and Triage - When did symptoms start route
-
 router.post('/antigen/v2/action3/when-did-symptoms-start', function (req, res) {
   let dateOfOnset = req.session.data['date-of-onset']
   let yearOfOnset = req.session.data['symptoms-start-date-year']
@@ -109,7 +83,7 @@ router.post('/antigen/v2/action3/when-did-symptoms-start', function (req, res) {
 
 })
 
-// Version 1 - Antigen Refer and Triage - When did symptoms start error route
+// Version 2 - Antigen Refer and Triage - When did symptoms start error route
 
 router.post('/antigen/v2/action3/when-did-symptoms-start-error', function (req, res) {
   let yearSymptomsStarted = req.session.data['symptoms-start-date-year']
@@ -168,53 +142,17 @@ router.post('/antigen/v2/action3/follow-up-test', function (req, res) {
 // Version 2 - Antigen Refer and Triage - Government pilot route
 
 router.post('/antigen/v2/action3/government-pilot', function (req, res) {
-  let governmentPilot = req.session.data['government-pilot']
-  let whichPilot = req.session.data['professional-pilot']
+  let governmentPilot = req.session.data['professional-pilot']
   let symptoms = req.session.data['do-you-have-symptoms']
   let followUpTest = req.session.data['follow-up-test']
-  if (followUpTest == "Yes") {
-    res.redirect('/antigen/v2/refer-and-triage/')
-  } else if (governmentPilot == "No" && symptoms == "No" && followUpTest == "No" || whichPilot == "None of the above" && symptoms == "No" && followUpTest == "No") {
+  if (governmentPilot == "None of the above" && symptoms == "No" && followUpTest == "No") {
     res.redirect('/antigen/v2/refer-and-triage/reason-for-test')
   } else {
     res.redirect('/antigen/v2/refer-and-triage/eligible')
   }
-
 })
-
-// Version 2 - Antigen Refer and Triage - Reason for test route
-
-// router.post('/antigen/v2/action3/reason-for-test', function (req, res) {
-//   let reason = req.session.data['reason-for-test']
-//   if (reason == "None of the above"){
-//     res.redirect('/antigen/v2/refer-and-triage/cannot-have-test')
-//   } else {
-//     res.redirect('/antigen/v2/refer-and-triage/eligible')
-//   }
-
-// })
 
 router.post('/antigen/v2/action3/reason-for-test', function (req, res) {
-  let reason = req.session.data['reason-for-test']
-  if (reason == "I have been in contact with someone who's tested positive for coronavirus"){
-    res.redirect('/antigen/v2/refer-and-triage/contact-tracing-code')
-  } 
-  else if (reason == "I was asked to get a test because I visited a venue where others have since tested positive") {
-    res.redirect('/antigen/v2/refer-and-triage/eligible')
-  }
-  else if (reason == "A healthcare professional has asked me to get a test") {
-    res.redirect('/antigen/v2/refer-and-triage/who-asked-for-test-HR')
-  }
-  else if (reason == "My work, university or school has asked me to get a test") {
-    res.redirect('/antigen/v2/refer-and-triage/who-asked-for-test-OER')
-  }
-  else {
-    res.redirect('/antigen/v2/refer-and-triage/cannot-have-test')
-  }
-
-})
-
-router.post('/antigen/v2/action3/reason-for-test-option-2', function (req, res) {
   let reason = req.session.data['reason-for-test']
   let whoAsked = req.session.data['who-asked-for-test']
   if (reason == "None of the above"){
@@ -522,11 +460,23 @@ router.post('/antigen/v2/action9/coronavirus-vaccine', function (req, res) {
 router.post('/antigen/v2/action9/coronavirus-vaccine-person-1', function (req, res) {
   let vaccine = req.session.data['vaccine-person-1']
   if (vaccine == "No"){
-    res.redirect('/antigen/v2/global-registration/country-person-1')
+    res.redirect('/antigen/v2/global-registration/gp-address-same-person-1')
   } else {
     res.redirect('/antigen/v2/global-registration/coronavirus-vaccine-date-person-1')
   }
 })
+
+// Version 2 - Antigen Global Registration - Country route
+
+// router.post('/antigen/v2/action3/country', function (req, res) {
+//   let country = req.session.data['country']
+//   let birthYear = req.session.data['date-of-birth-year']
+//   if (country == "England" && parseInt(birthYear) <= 2003 ){
+//     res.redirect('/antigen/v2/global-registration/home-address')
+//   } else {
+//     res.redirect('/antigen/v2/global-registration/gp-address-same')
+//   }
+// })
 
 // Version 2 - Antigen Global Registration - Coronavirus vaccine edit cehck answers route
 
@@ -627,7 +577,7 @@ router.post('/antigen/v2/action3/nhs-number-known', function (req, res) {
   if (nhsNumberKnown == "Yes"){
     res.redirect('/antigen/v2/global-registration/nhs-number')
   } else {
-    res.redirect('/antigen/v2/global-registration/check-your-answers')
+    res.redirect('/antigen/v2/global-registration/fingerprick-test')
   }
 })
 
@@ -636,7 +586,7 @@ router.post('/antigen/v2/action3/nhs-number-known-person-1', function (req, res)
   if (nhsNumberKnown == "Yes"){
     res.redirect('/antigen/v2/global-registration/nhs-number-person-1')
   } else {
-    res.redirect('/antigen/v2/global-registration/check-your-answers-person-1')
+    res.redirect('/antigen/v2/global-registration/fingerprick-test-person-1')
   }
 })
 
