@@ -150,7 +150,7 @@
             Home address
           </dt>
           <dd class="govuk-summary-list__value govuk-!-width-one-third">
-            {% if data['home-address'] %}
+            {% if data['home-address'] and data['home-address'] !== "5 addresses found" %}
             {{ data['home-address'] }}
             {% else %}
             {{ data['address-line-1'] }}<br>
