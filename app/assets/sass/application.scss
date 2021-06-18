@@ -478,6 +478,20 @@ a.card__body {
   background-color: #000000;
 }
 
+.proto-action.invisible,
+.proto-error.invisible {
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  height: 200px;
+  a {
+    width: 100%; 
+    height: 100%;
+  }
+}
+
 .account-home-button {
   width: 100%;
   position: relative;
