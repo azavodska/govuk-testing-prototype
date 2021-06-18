@@ -1,6 +1,5 @@
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
-$govuk-new-link-styles: true;
 
 // We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
 $govuk-assets-path: '/govuk/assets/';
@@ -14,6 +13,7 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/step-by-step-related";
 @import "patterns/task-list";
 @import "patterns/related-items";
+@import "patterns/bulk-upload";
 
 // Components that aren't in Frontend
 @import "components/cookie-banner";
@@ -476,6 +476,20 @@ a.card__body {
   height: 4px;
   width: 100%;
   background-color: #000000;
+}
+
+.proto-action.invisible,
+.proto-error.invisible {
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  height: 200px;
+  a {
+    width: 100%; 
+    height: 100%;
+  }
 }
 
 .account-home-button {

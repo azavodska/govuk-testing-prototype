@@ -1,0 +1,34 @@
+{% set version = "v1" %}
+{% set pageTitle = "You are invited to be a PCR (polymerase chain reaction) Home Test Manager" %}
+{% extends "includes/layout.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-6">{{ pageTitle }}</h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-1">This service lets you manage bulk PCR home test kit ordering. As a PCR Home Test Manager, you can:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>order home test kits for up to 100 people at a time</li>
+        <li>add PCR Home Test Operatives so they can order home test kits too</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">What to do next</h2>
+      <p class="govuk-body">You will receive a text with your temporary password. You must use this within 7 days before it expires. Sign in with your email address as your username.</p>
+
+      <a href="/bulk-order-home-kits/{{version}}/login-temporary" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-top-4" data-module="govuk-button">
+        Start now
+      </a>
+
+      <div class="proto-action invisible">
+        <a href="/bulk-order-home-kits/{{version}}/sms-manager">
+          <!-- <div class="proto-action-text govuk-!-font-size-19 govuk-!-padding-2 govuk-!-margin-left-3">Text message 2</div> -->
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

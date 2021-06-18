@@ -1,0 +1,80 @@
+{% set version = "v1" %}
+{% set pageTitle = "You've added a home test kit operative" %}
+
+{% extends "includes/layout.html" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+      <h1 class="govuk-panel__title">{{ pageTitle }}</h1>
+      <p class="govuk-body govuk-!-margin-bottom-1" style="color: #ffffff">
+        {% if data['team-leader-1-first-name'] != undefined and data['team-leader-2-first-name'] == undefined %}
+        <strong>
+          Name: {{ data['team-leader-1-first-name'] }} {{ data['team-leader-1-last-name'] }}<br><br>
+          Contact: {{ data['team-leader-1-mobile-number'] }} / {{ data['team-leader-1-email-address'] }}
+        </strong>
+        {% elseif data['team-leader-1-first-name'] != undefined and data['team-leader-2-first-name'] != undefined and data['team-leader-3-first-name'] == undefined %}
+        <strong>
+          Name: {{ data['team-leader-2-first-name'] }} {{ data['team-leader-2-last-name'] }}<br><br>
+          Contact: {{ data['team-leader-2-mobile-number'] }} / {{ data['team-leader-2-email-address'] }}
+        </strong>
+        {% elseif data['team-leader-1-first-name'] != undefined and data['team-leader-2-first-name'] != undefined and data['team-leader-3-first-name'] !== undefined and data['team-leader-4-first-name'] == undefined %}
+        <strong>
+          Name: {{ data['team-leader-3-first-name'] }} {{ data['team-leader-3-last-name'] }}<br><br>
+          Contact: {{ data['team-leader-3-mobile-number'] }} / {{ data['team-leader-3-email-address'] }}
+        </strong>
+        {% else %}
+        <strong>
+          Name: {{ data['team-leader-4-first-name'] }} {{ data['team-leader-4-last-name'] }}<br><br>
+          Contact: {{ data['team-leader-4-mobile-number'] }} / {{ data['team-leader-4-email-address'] }}
+        </strong>
+        {% endif %}
+      </p>
+    </div>
+
+    <h2 class="govuk-heading-m">What happens next?</h2>
+
+    <p class="govuk-body">
+      An email invitation will be sent to your home test operative. They can then create an account to start ordering bulk home test kits.
+    </p>
+
+    <div class="inline-button-wrapper" style="justify-content: flex-start;">
+
+        <form action="/bulk-order-home-kits/{{version}}/manage-organisation/add-team-leader" method="post" novalidate>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Add another operative
+          </button>
+
+        </form>
+
+        <form action="/bulk-order-home-kits/{{version}}/manage-organisation/manage-team-leaders" method="post" class="right-button-margin" novalidate>
+
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Finish
+          </button>
+
+        </form>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
