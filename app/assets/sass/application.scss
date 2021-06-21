@@ -43,6 +43,14 @@ $govuk-assets-path: '/govuk/assets/';
   cursor: pointer
 }
 
+.email-header {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 100%;
+  }
+}
+
 .govuk-notification-banner {
     font-family: "GDS Transport",arial,sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -550,6 +558,13 @@ a.card__body {
 }
 
 @media (min-width: 40.0625em) {
+  .email-header {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 75%;
+    }
+  }
   .grey-box {
     position: absolute;
     height: auto;
