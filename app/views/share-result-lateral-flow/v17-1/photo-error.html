@@ -1,0 +1,45 @@
+{% set version = "v17-1" %}
+{% set pageTitle = "Please take the photo again" %}
+
+{% extends "includes/layout-LFD.html" %}
+
+{% block beforeContent %}
+<!-- back link -->
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
+
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+         Follow these tips to take a good photo
+       </h2>
+
+
+      <ul class="govuk-list govuk-list--bullet govuk-u-margin-bottom-6">
+          <li>all 4 corners of the test strip are in the outline</li>
+          <li>place the test strip the right way up (C & T on the right-hand side)</li>
+          <li>check the image is not blurry</li>
+          <li>the test strip is well lit with minimal shadows or reflections</li>
+          <li>take the photo from directly above the test strip</li>
+          <li>lay the test strip flat on a plain surface</li>
+          <li>ensure all 4 corners of the test strip device fit inside the outline</li>
+          <li>make sure no personal information is in the photo (e.g. paperwork with a name, date of birth, address or bank details)</li>
+      </ul>
+
+      <div>
+        <img style="width:100%" src="/public/images/LFD-strip-blurry.png" alt="The photo you took">
+        <br>
+        <br>
+        <a href="photo-guidance-3" class="govuk-button govuk-u-margin-bottom-8">
+          Take the photo again
+        </a>
+      </div>
+
+    </div>
+</div>
+
+{% endblock %}
