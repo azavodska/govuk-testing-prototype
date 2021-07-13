@@ -708,6 +708,17 @@ router.post('/litereg-accounts/v3/action9/currently-in-work', function (req, res
 
 })
 
+// Version 3 - Lite Registration Accounts - GP address same route
+
+router.post('/litereg-accounts/v3/action/gp-address-same', function (req, res) {
+  let gpAdressSame = req.session.data['gp-address-same']
+  if (gpAdressSame == "No"){
+    res.redirect('/litereg-accounts/v3/address')
+  } else {
+    res.redirect('/litereg-accounts/v3/email-address')
+  }
+})
+
 // Version 3 - Lite Registration Accounts - NHS number known route
 
 router.post('/litereg-accounts/v3/action9/nhs-number-known', function (req, res) {
@@ -715,7 +726,7 @@ router.post('/litereg-accounts/v3/action9/nhs-number-known', function (req, res)
   if (nhsNumberKnown == "Yes"){
     res.redirect('/litereg-accounts/v3/nhs-number')
   } else {
-    res.redirect('/litereg-accounts/v3/check-your-answers')
+    res.redirect('/litereg-accounts/v3/fingerprick-test')
   }
 
 })
@@ -796,7 +807,7 @@ router.post('/litereg-accounts/v3/action7/vaccine', function (req, res) {
   let vaccine = req.session.data['vaccine']
   let loginEmail = req.session.data['email-address']
   if (vaccine == "No" && loginEmail == "user@testing.co.uk") {
-    res.redirect('/litereg-accounts/v3/check-your-answers')
+    res.redirect('/litereg-accounts/v3/fingerprick-test')
   } else if (vaccine == "No" && loginEmail != "user@testing.co.uk") {
     res.redirect('/litereg-accounts/v3/country')
   } else {
@@ -1817,6 +1828,28 @@ router.post('/share-result-lateral-flow/v19-2/action9/check-mobile', function (r
             res.redirect('/share-result-lateral-flow/v22/user-account/check-mobile-error')
           } else {
             res.redirect('/share-result-lateral-flow/v22/user-account/agreement')
+          }
+          })
+
+          // Version 23 - LDF self report accounts - Create password route
+
+          router.post('/share-result-lateral-flow/v23/action9/create-password', function (req, res) {
+          let password = req.session.data['password']
+          let confirmPassword = req.session.data['confirm-password']
+          if (password == "" || confirmPassword == "") {
+            res.redirect('/share-result-lateral-flow/v23/user-account/create-password-error')
+          } else {
+            res.redirect('/share-result-lateral-flow/v23/user-account/check-email')
+          }
+          })
+
+          // Version 23 - LDF self report accounts - check mobile route
+          router.post('/share-result-lateral-flow/v23/action9/check-mobile', function (req, res) {
+          let securityCode = req.session.data['security-code']
+          if (securityCode == "") {
+            res.redirect('/share-result-lateral-flow/v23/user-account/check-mobile-error')
+          } else {
+            res.redirect('/share-result-lateral-flow/v23/user-account/agreement')
           }
           })
 
