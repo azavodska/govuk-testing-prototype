@@ -1,5 +1,5 @@
 {% set version = "v3" %}
-{% set pageTitle = "Registration confirmed" %}
+{% set pageTitle = "Kit registration confirmed" %}
 
 {% extends "includes/layout.html" %}
 
@@ -21,9 +21,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-panel govuk-panel--confirmation">
-      <h1 class="govuk-panel__title">{{ pageTitle }}</h1>
-    </div>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">{{ data['first-name'] or 'Bob'}} {{ data['last-name'] or 'Smith'}} <br>{{ pageTitle }}</h1>
+
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -34,7 +33,6 @@
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">{{ data['first-name'] or 'Bob' }} {{ data['last-name'] or 'Smith' }}</th>
           {% if data['swab-test-date'] == "different" %}
           <td class="govuk-table__cell">
             {{ data['mobile-phone-number'] or '+4478353335' }}<br>
@@ -83,18 +81,7 @@
     {% endif %}
 
 
-    <h2 class="govuk-heading-m">Help us improve our service</h2>
-
-    <p class="govuk-body govuk-!-margin-bottom-8"><a class="govuk-link govuk-!-margin-right-2" href="#">Fill in our short survey</a> (takes 3 minutes)</p>
-
-    <form action="/litereg-accounts/{{version}}/whos-taking-the-test" method="post" novalidate>
-
-      <button type="submit" class="govuk-button" data-module="govuk-button">
-        Register someone else
-      </button>
-
-    </form>
-
+  
   </div>
 </div>
 
