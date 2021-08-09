@@ -1,5 +1,5 @@
 {% set version = "v2" %}
-{% set pageTitle = "What is the home address registered with their GP?" %}
+{% set pageTitle = "Enter the home address you registered with your GP" %}
 
 {% extends "includes/layout.html" %}
 
@@ -15,8 +15,7 @@
     </p>
   </div>
 
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/registered-with-GP-person-1">Back</a>
-
+  <a class="govuk-back-link" href="/international-arrivals/{{version}}/nhs-number">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -25,28 +24,29 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/international-arrivals/{{version}}/gender-person-1" method="post">
+      <form action="/international-arrivals/{{version}}/gender" method="post">
 
         <fieldset class="govuk-fieldset" aria-describedby="post-code-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
-              Enter the home address registered with {{ data['first-name-person-1'] or 'Jane' }} {{ data['last-name-person-1'] or 'Wilson' }}'s GP
+              {{pageTitle}}
             </h1>
           </legend>
           <span id="post-code-hint" class="govuk-body">
-            This will help us find and update your GP record with your test result. The test does not have to be sent to this address.
+            This will help us find and update their GP record with their test result.<br><br>
+            <strong>If you are not registered with a doctor in the UK, that's OK. Enter the address and postcode where you're staying instead.</strong>
           </span>
           <div class="govuk-form-group govuk-!-margin-top-5">
-            <label class="govuk-label" for="address-person-1">
+            <label class="govuk-label" for="address">
               First line of address
             </label>
-            <input class="govuk-input govuk-input--width-10" id="address-person-1" name="address-person-1" type="text" value="{{ data['address-person-1'] }}">
+            <input class="govuk-input govuk-input--width-10" id="address" name="address" type="text" value="{{ data['address'] }}">
           </div>
           <div class="govuk-form-group">
-            <label class="govuk-label" for="home-postcode-person-1">
+            <label class="govuk-label" for="home-postcode">
               Postcode
             </label>
-            <input class="govuk-input govuk-input--width-10" id="home-postcode-person-1" name="home-postcode-person-1" type="text" autocomplete="postal-code" value="{{ data['home-postcode-person-1'] }}">
+            <input class="govuk-input govuk-input--width-10" id="home-postcode" name="home-postcode" type="text" autocomplete="postal-code" value="{{ data['home-postcode'] }}">
           </div>
         </fieldset>
 

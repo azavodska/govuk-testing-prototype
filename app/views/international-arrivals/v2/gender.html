@@ -1,5 +1,5 @@
 {% set version = "v2" %}
-{% set pageTitle = "Which of the following is in their medical records?" %}
+{% set pageTitle = "Which of the following is recorded on your medical record?" %}
 
 {% extends "includes/layout.html" %}
 
@@ -13,14 +13,9 @@
         This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
       </span>
     </p>
-  </div> 
+  </div>
 
-  {% if data['registered-with-GP-person-1'] %}
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/address-person-1">Back</a>
-  {% else %}
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/registered-with-GP-person-1">Back</a>
-  {% endif %}
-
+  <a class="govuk-back-link" href="/international-arrivals/{{version}}/address">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -29,34 +24,34 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/international-arrivals/{{version}}/check-your-answers-person-1" method="post">
-      
+      <form action="/international-arrivals/{{version}}/check-your-answers" method="post">
+
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="gender-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">
-                Which of the following is in {{ data['first-name-person-1'] or 'Jane' }} {{ data['last-name-person-1'] or 'Wilson' }}'s medical records?
+              <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">
+                {{pageTitle}}
               </h1>
             </legend>
             <span id="gender-hint" class="govuk-body">
-              We're asking this question so we can find their medical records and save their result.
+              We are asking this question so we can find your GP record and save your result there.
             </span>
             <div class="govuk-radios govuk-!-margin-top-6" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="gender-2-person-1" name="gender-person-1" type="radio" value="Male" {{ checked("gender-person-1", "Male") }}>
-                <label class="govuk-label govuk-radios__label" for="gender-2-person-1">
+                <input class="govuk-radios__input" id="gender-2" name="gender" type="radio" value="Male" {{ checked("gender", "Male") }}>
+                <label class="govuk-label govuk-radios__label" for="gender-2">
                   Male
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="gender-1-person-1" name="gender-person-1" type="radio" value="Female" {{ checked("gender-person-1", "Female") }}>
-                <label class="govuk-label govuk-radios__label" for="gender-1-person-1">
+                <input class="govuk-radios__input" id="gender-1" name="gender" type="radio" value="Female" {{ checked("gender", "Female") }}>
+                <label class="govuk-label govuk-radios__label" for="gender-1">
                   Female
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="gender-3-person-1" name="gender-person-1" type="radio" value="Other / Not specified / I do not know" {{ checked("gender-person-1", "Other / Not specified / I do not know") }}>
-                <label class="govuk-label govuk-radios__label" for="gender-3-person-1">
+                <input class="govuk-radios__input" id="gender-3" name="gender" type="radio" value="Other / Not specified / I do not know" {{ checked("gender", "Other / Not specified / I do not know") }}>
+                <label class="govuk-label govuk-radios__label" for="gender-3">
                   Other / Not specified / I do not know
                 </label>
               </div>
@@ -71,7 +66,7 @@
             </span>
           </summary>
           <div class="govuk-details__text">
-            We understand there may be other ways a person may answer this question. In this case, we just need to know what is on the person's GP record.
+            We understand there may be other ways a person may answer this question. In this case, we just need to know what is on your GP record.
           </div>
         </details>
 
