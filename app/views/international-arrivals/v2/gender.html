@@ -15,7 +15,11 @@
     </p>
   </div>
 
+  {% if data['registered-with-GP'] %}
   <a class="govuk-back-link" href="/international-arrivals/{{version}}/address">Back</a>
+  {% else %}
+  <a class="govuk-back-link" href="/international-arrivals/{{version}}/registered-with-GP">Back</a>
+  {% endif %}
 {% endblock %}
 
 {% block content %}
