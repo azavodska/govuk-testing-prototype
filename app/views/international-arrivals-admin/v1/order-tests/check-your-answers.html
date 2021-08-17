@@ -1,7 +1,7 @@
-{% set version = "v2" %}
+{% set version = "v1" %}
 {% set pageTitle = "Check your answers" %}
 
-{% extends "includes/layout.html" %}
+{% extends "includes/layout-intl-arrivals-admin.html" %}
 
 {% block beforeContent %}
 <div class="govuk-phase-banner">
@@ -16,9 +16,9 @@
 </div>
 
 {% if data['contact-details-same'] == "No" %}
-<a class="govuk-back-link" href="/international-arrivals/{{version}}/contact-details">Back</a>
+<a class="govuk-back-link" href="/international-arrivals-admin/{{version}}/order-tests/contact-details">Back</a>
 {% else %}
-<a class="govuk-back-link" href="/international-arrivals/{{version}}/contact-details-same">Back</a>
+<a class="govuk-back-link" href="/international-arrivals-admin/{{version}}/order-tests/contact-details-same">Back</a>
 {% endif %}
 
 {% endblock %}
@@ -29,7 +29,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <form action="/international-arrivals/{{version}}/people-confirmed" method="post" novalidate>
+      <form action="/international-arrivals-admin/{{version}}/order-tests/people-confirmed" method="post" novalidate>
 
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">{{ pageTitle }}</h1>
 
@@ -46,7 +46,7 @@
             {{ data['flight-eurostar-ferry'] or '9W15' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/flight-eurostar-ferry-number">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/flight-eurostar-ferry-number">
               Change
               <span class="govuk-visually-hidden">flight, eurostar or ferry number</span>
             </a>
@@ -60,7 +60,7 @@
             {{ data['country-autocomplete'] or 'Hamburg' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/departure-country">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/departure-country">
               Change
               <span class="govuk-visually-hidden">departure country</span>
             </a>
@@ -74,7 +74,7 @@
             {{ data['port-of-entry'] or 'Heathrow' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/point-of-entry">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/point-of-entry">
               Change
               <span class="govuk-visually-hidden">point of entry</span>
             </a>
@@ -114,7 +114,7 @@
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/date-of-entry">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/date-of-entry">
               Change
               <span class="govuk-visually-hidden">date of entry</span>
             </a>
@@ -128,7 +128,7 @@
             {{ data['travel-route'] or 'Day 2 and Day 8 test' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/travel-route">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/travel-route">
               Change
               <span class="govuk-visually-hidden">travel-package</span>
             </a>
@@ -149,7 +149,7 @@
             {{ data['first-name'] or 'Pete' }} {{ data['last-name'] or 'Smith' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/name">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/name">
               Change
               <span class="govuk-visually-hidden">name</span>
             </a>
@@ -163,7 +163,7 @@
             {{ data['date-of-birth-day'] or '2 June 1984' }} {{ data['date-of-birth-month'] }} {{ data['date-of-birth-year'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/date-of-birth">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/date-of-birth">
               Change
               <span class="govuk-visually-hidden">date of birth</span>
             </a>
@@ -177,7 +177,7 @@
             {{ data['passport-number'] or '50215771' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/passport-number">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/passport-number">
               Change
               <span class="govuk-visually-hidden">passport number</span>
             </a>
@@ -198,7 +198,7 @@
             {{ data['email-address'] or 'psmith@example.co.uk' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/email-address">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/email-address">
               Change
               <span class="govuk-visually-hidden">email address</span>
             </a>
@@ -212,7 +212,7 @@
             {{ data['mobile-phone-number'] or '077719665424' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/mobile-number">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/mobile-number">
               Change
               <span class="govuk-visually-hidden">mobile number</span>
             </a>
@@ -223,7 +223,7 @@
       <div style="display: flex; justify-content: space-between; align-items: flex-end;">
         <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Medical details</h2>
         <!-- <p class="govuk-body">
-          <a href="/international-arrivals/{{version}}/contact-details">
+          <a href="/international-arrivals-admin/{{version}}/order-tests/contact-details">
             Change
             <span class="govuk-visually-hidden">name</span>
           </a>
@@ -301,7 +301,7 @@
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/vaccine">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/vaccine">
               Change
               <span class="govuk-visually-hidden">Coronavirus vaccine</span>
             </a>
@@ -315,7 +315,7 @@
             {{ data['previous-infection'] or 'No' }}
            </dd>
          <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/previous-infection">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/previous-infection">
               Change
               <span class="govuk-visually-hidden">positive coronavirus test</span>
             </a>
@@ -329,7 +329,7 @@
             {{ data['ethnic-group'] or 'White' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/ethnic-group">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/ethnic-group">
               Change
               <span class="govuk-visually-hidden">ethnic group</span>
             </a>
@@ -343,7 +343,7 @@
             {{ data['ethnic-background'] or 'Irish' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/ethnic-group">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/ethnic-group">
               Change
               <span class="govuk-visually-hidden">ethnic background</span>
             </a>
@@ -361,7 +361,7 @@
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/nhs-number-known">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/nhs-number-known">
               Change
               <span class="govuk-visually-hidden">have an nhs number</span>
             </a>
@@ -375,7 +375,7 @@
             {{ data['registered-with-GP'] or 'No' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/registered-with-GP">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/registered-with-GP">
               Change
               <span class="govuk-visually-hidden">registered with a GP</span>
             </a>
@@ -383,14 +383,14 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            GP address
+            Home address
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['address'] or '5 Souterhead Road' }}<br>
             {{ data['home-postcode'] or 'LS1 3BE' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/address">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/address">
               Change
               <span class="govuk-visually-hidden">address</span>
             </a>
@@ -404,7 +404,7 @@
             {{ data['gender'] or 'Male' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/international-arrivals/{{version}}/gender">
+            <a href="/international-arrivals-admin/{{version}}/order-tests/gender">
               Change
               <span class="govuk-visually-hidden">medical record</span>
             </a>

@@ -1,7 +1,7 @@
-{% set version = "v2" %}
-{% set pageTitle = "Do they have an NHS number?" %}
+{% set version = "v1" %}
+{% set pageTitle = "Do you have an NHS number?" %}
 
-{% extends "includes/layout.html" %}
+{% extends "includes/layout-intl-arrivals-admin.html" %}
 
 {% block beforeContent %}
   <div class="govuk-phase-banner">
@@ -15,20 +15,19 @@
     </p>
   </div>
 
-  {% if data['ethnic-group-person-1'] == "Asian or Asian British" %}
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/ethnic-background-asian-person-1">Back</a>
-  {% elseif data['ethnic-group-person-1'] == "Black, African, Black British or Caribbean" %}
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/ethnic-background-black-person-1">Back</a>
-  {% elseif data['ethnic-group-person-1'] == "Mixed or multiple ethnic groups" %}
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/ethnic-background-mixed-person-1">Back</a>
-  {% elseif data['ethnic-group-person-1'] == "White" %}
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/ethnic-background-white-person-1">Back</a>
-  {% elseif data['ethnic-group-person-1'] == "Another ethnic group" %}
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/ethnic-background-another-person-1">Back</a>
+  {% if data['ethnic-group'] == "Asian or Asian British" %}
+  <a class="govuk-back-link" href="/international-arrivals-admin/{{version}}/order-tests/ethnic-background-asian">Back</a>
+  {% elseif data['ethnic-group'] == "Black, African, Black British or Caribbean" %}
+  <a class="govuk-back-link" href="/international-arrivals-admin/{{version}}/order-tests/ethnic-background-black">Back</a>
+  {% elseif data['ethnic-group'] == "Mixed or multiple ethnic groups" %}
+  <a class="govuk-back-link" href="/international-arrivals-admin/{{version}}/order-tests/ethnic-background-mixed">Back</a>
+  {% elseif data['ethnic-group'] == "White" %}
+  <a class="govuk-back-link" href="/international-arrivals-admin/{{version}}/order-tests/ethnic-background-white">Back</a>
+  {% elseif data['ethnic-group'] == "Another ethnic group" %}
+  <a class="govuk-back-link" href="/international-arrivals-admin/{{version}}/order-tests/ethnic-background-another">Back</a>
   {% else %}
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/ethnic-group-person-1">Back</a>
+  <a class="govuk-back-link" href="/international-arrivals-admin/{{version}}/order-tests/ethnic-group">Back</a>
   {% endif %}
-
 {% endblock %}
 
 {% block content %}
@@ -37,18 +36,18 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/international-arrivals/{{version}}/action/nhs-number-known-person-1" method="post">
+      <form action="/international-arrivals-admin/{{version}}/order-tests/action9/nhs-number-known" method="post">
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="nhs-number-known-hint nhs-number-known-hint-2">
+          <fieldset class="govuk-fieldset" aria-describedby="nhs-number-known-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
-                Does {{ data['first-name-person-1'] or 'Jane' }} {{ data['last-name-person-1'] or 'Wilson' }} have an NHS number?
+              <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+                {{pageTitle}}
               </h1>
             </legend>
             <span id="nhs-number-known-hint" class="govuk-body">
-              <strong>This will help us find and update their GP record with their test result.</strong><br><br>
-              If you do not have their NHS number, you can still continue.<br><br>
+              <strong>This will help us find and update your GP record with your test result.</strong><br><br>
+              If you do not have it, you can still continue.<br><br>
             </span>
             <details class="govuk-details" data-module="govuk-details">
               <summary class="govuk-details__summary">
@@ -73,15 +72,15 @@
             </details>
             <div class="govuk-radios govuk-radios--conditional govuk-!-padding-top-2" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="nhs-number-known-1-person-1" name="nhs-number-known-person-1" type="radio" value="Yes" {{ checked("nhs-number-known-person-1", "Yes") }}>
-                  <label class="govuk-label govuk-radios__label" for="nhs-number-known-1-person-1">
-                    Yes, I can provide their NHS number
+                  <input class="govuk-radios__input" id="nhs-number-known-1" name="nhs-number-known" type="radio" value="Yes" {{ checked("nhs-number-known", "Yes") }}>
+                  <label class="govuk-label govuk-radios__label" for="nhs-number-known-1">
+                    Yes, I can provide my NHS number
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="nhs-number-known-3-person-1" name="nhs-number-known-person-1" type="radio" value="No" {{ checked("nhs-number-known-person-1", "No") }}>
-                  <label class="govuk-label govuk-radios__label" for="nhs-number-known-3-person-1">
-                    No, I cannot provide their NHS number
+                  <input class="govuk-radios__input" id="nhs-number-known-3" name="nhs-number-known" type="radio" value="No" {{ checked("nhs-number-known", "No") }}>
+                  <label class="govuk-label govuk-radios__label" for="nhs-number-known-3">
+                    No, I cannot provide my NHS number
                   </label>
                 </div>
               </div>
