@@ -1,5 +1,5 @@
 {% set version = "v2" %}
-{% set pageTitle = "Scan your unique home test kit barcode" %}
+{% set pageTitle = "Scan your test kit barcode" %}
 
 {% extends "includes/layout.html" %}
 
@@ -40,6 +40,7 @@
           playSoundOnScan="true"
           scanSettings.searchArea='{"x":0.1,"y":0.2,"width":0.8,"height":0.6}'
           guiStyle="viewfinder"
+          enableTorchToggle="true"
           videoFit="cover"
           scanSettings.enabledSymbologies='["data-matrix", "code128", "qr"]'
         >

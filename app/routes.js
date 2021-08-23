@@ -27,6 +27,8 @@ router.use('/', require('./routes/provider-list.js'))
 router.use('/', require('./routes/lamp-test-return.js'))
 router.use('/', require('./routes/bulk-order-home-kits.js'))
 router.use('/', require('./routes/international-arrivals-admin.js'))
+router.use('/', require('./routes/accessibility.js'))
+
 
 // Pull scope into the homepage to show/hide sections
 // 'SCOPE' is either pulled in from the Heroku App settings or setting in a local .env file eg. SCOPE=antibody
@@ -476,10 +478,11 @@ router.post('/antigen/v1/action3/government-pilot', function (req, res) {
 // Version 1 - Antigen Refer and Triage - Reason for test route
 
 router.post('/antigen/v1/action3/reason-for-test', function (req, res) {
+  let whoAsked = req.session.data['who-asked-for-test']
   let reason = req.session.data['reason-for-test']
   if (reason == "None of the above"){
     res.redirect('/antigen/v1/refer-and-triage/cannot-have-test')
-  } else if (reason == "I've been told by contact tracers to get a test") {
+  } else if (whoAsked == "I've been told by contact tracers to get a test") {
     res.redirect('/antigen/v1/refer-and-triage/contact-tracing-code')
   }
   else {
@@ -2329,6 +2332,113 @@ router.post('/litereg-accounts/v3/action4/test-place', function (req, res) {
 
 })
 
+// Bulk Order Home Kits - Manage Team Leader 1
+router.post('/bulk-order-test-kits/v1/action1/manage-team-leader-1', function (req, res) {
+  let teamLeader1FirstName = req.session.data['team-leader-1-first-name']
+  let teamLeader1LastName = req.session.data['team-leader-1-last-name']
+  let teamLeader1Email = req.session.data['team-leader-1-email-address']
+  let teamLeader1Mobile = req.session.data['team-leader-1-mobile-number']
+  if (teamLeader1FirstName == "" || teamLeader1LastName == "" || teamLeader1Email == "" || teamLeader1Mobile == "" ){
+    res.redirect('/bulk-order-home-kits/v1/manage-organisation/manage-team-leader-1-error')
+  } else {
+    res.redirect('/bulk-order-home-kits/v1/manage-organisation/team-leader-1-updated-confirmation')
+  }
+})
 
+// Bulk Order Home Kits - Manage Team Leader 2
+router.post('/bulk-order-test-kits/v1/action1/manage-team-leader-2', function (req, res) {
+  let teamLeader1FirstName = req.session.data['team-leader-2-first-name']
+  let teamLeader1LastName = req.session.data['team-leader-2-last-name']
+  let teamLeader1Email = req.session.data['team-leader-2-email-address']
+  let teamLeader1Mobile = req.session.data['team-leader-2-mobile-number']
+  if (teamLeader1FirstName == "" || teamLeader1LastName == "" || teamLeader1Email == "" || teamLeader1Mobile == "" ){
+    res.redirect('/bulk-order-home-kits/v1/manage-organisation/manage-team-leader-2-error')
+  } else {
+    res.redirect('/bulk-order-home-kits/v1/manage-organisation/team-leader-2-updated-confirmation')
+  }
+})
+
+// Bulk Order Home Kits - Manage Team Leader 3
+router.post('/bulk-order-test-kits/v1/action1/manage-team-leader-3', function (req, res) {
+  let teamLeader1FirstName = req.session.data['team-leader-3-first-name']
+  let teamLeader1LastName = req.session.data['team-leader-3-last-name']
+  let teamLeader1Email = req.session.data['team-leader-3-email-address']
+  let teamLeader1Mobile = req.session.data['team-leader-3-mobile-number']
+  if (teamLeader1FirstName == "" || teamLeader1LastName == "" || teamLeader1Email == "" || teamLeader1Mobile == "" ){
+    res.redirect('/bulk-order-home-kits/v1/manage-organisation/manage-team-leader-3-error')
+  } else {
+    res.redirect('/bulk-order-home-kits/v1/manage-organisation/team-leader-3-updated-confirmation')
+  }
+})
+
+// Bulk Order Home Kits - Manage Team Leader 4
+router.post('/bulk-order-test-kits/v1/action1/manage-team-leader-4', function (req, res) {
+  let teamLeader1FirstName = req.session.data['team-leader-4-first-name']
+  let teamLeader1LastName = req.session.data['team-leader-4-last-name']
+  let teamLeader1Email = req.session.data['team-leader-4-email-address']
+  let teamLeader1Mobile = req.session.data['team-leader-4-mobile-number']
+  if (teamLeader1FirstName == "" || teamLeader1LastName == "" || teamLeader1Email == "" || teamLeader1Mobile == "" ){
+    res.redirect('/bulk-order-home-kits/v1/manage-organisation/manage-team-leader-4-error')
+  } else {
+    res.redirect('/bulk-order-home-kits/v1/manage-organisation/team-leader-4-updated-confirmation')
+  }
+})
+
+// Bulk Order Home Kits - What Test Pacakge Order
+router.post('/bulk-order-test-kits/v1/action1/what-test-package-order', function (req, res) {
+  let testPackage = req.session.data['test-package']
+  if (testPackage == "Sequenced pre-linked PCR test kit" || testPackage == "Private provider validation kit"){
+    res.redirect('/bulk-order-home-kits/v1/order-kits/upload-file-test-package')
+  } else {
+    res.redirect('/bulk-order-home-kits/v1/order-kits/what-test-package-order-error')
+  }
+})
+
+router.post('/delegated-access/hauliers/register/v2/uk/nhs-number-known', function (req, res) {
+  var liveInUk = req.session.data['live-in-uk']
+
+  // Check whether the variable matches a condition
+  if (liveInUk == "yes"){
+    // Send user to next page
+    res.redirect('/delegated-access/hauliers/register/v2/uk/nhs-number-known')
+  } else {
+    // Send user to ineligible page
+    res.redirect('/delegated-access/hauliers/register/v2/non-uk/check-your-answers')
+  }
+
+})
+
+router.post('/delegated-access/hauliers/register/v2/uk/nhs-number', function (req, res) {
+  var isNhsNumberKnown = req.session.data['nhs-number-known']
+
+  // Check whether the variable matches a condition
+  if (isNhsNumberKnown == "yes"){
+    // Send user to next page
+    res.redirect('/delegated-access/hauliers/register/v2/uk/nhs-number')
+  } else {
+    // Send user to ineligible page
+    res.redirect('/delegated-access/hauliers/register/v2/uk/address')
+  }
+
+})
+
+router.post('/delegated-access/hauliers/register/v2/uk/ethnic-group', function (req, res) {
+let ethnicGroup = req.session.data['ethnic-group']
+
+  if (ethnicGroup == "Asian or Asian British"){
+    res.redirect('/delegated-access/hauliers/register/v2/uk/ethnic-background-asian')
+  } else if (ethnicGroup == "Black, African, Black British or Caribbean") {
+    res.redirect('/delegated-access/hauliers/register/v2/uk/ethnic-background-black')
+  } else if (ethnicGroup == "Mixed or multiple ethnic groups") {
+    res.redirect('/delegated-access/hauliers/register/v2/uk/ethnic-background-mixed')
+  } else if (ethnicGroup == "White") {
+    res.redirect('/delegated-access/hauliers/register/v2/uk/ethnic-background-white')
+  } else if (ethnicGroup == "Another ethnic group") {
+    res.redirect('/delegated-access/hauliers/register/v2/uk/ethnic-background-another')
+  } else {
+    res.redirect('/delegated-access/hauliers/register/v2/uk/check-your-answers')
+  }
+
+})
 
 module.exports = router
