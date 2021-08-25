@@ -48,7 +48,7 @@
                 <label class="govuk-label govuk-radios__label" for="way-to-test-1">
                   <span  class="govuk-body-l"><strong>At a drive-through test site</strong><br><br></span>
                 </label>
-                <p style="margin-left: -25px; margin-top: 20px;" class="govuk-body"><strong>Your nearest test site by road is Heathrow airport</strong><br><br>
+                <p style="margin-left: -25px; margin-top: -10px;" class="govuk-body"><strong>Your nearest test site by road is Heathrow airport</strong><br><br>
                   125 testing lane,<br>
                   Highbury & Islington,<br>
                   RM4 3RS,<br>
@@ -60,29 +60,61 @@
                     <div class="govuk-accordion__section-header">
                       <h2 class="govuk-accordion__section-heading">
                         <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-                          Writing well for the web
+                          What's available at this site?
                         </span>
                       </h2>
                     </div>
                     <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-                      <p class='govuk-body'>This is the content for Writing well for the web.</p>
+                      <table class="govuk-table" style="border-color: #b1b4b6">
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Step free and wheelchair accessible</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Large bays for wheelchairs and families</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Public toilets</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Accessible toilets</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Assisted testing - Drive through only<br>This is when staff can do the swab for you</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey">not available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Guided testing<br>This is where staff guide you</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey">not available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Easy read instructions</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Large print instructions</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey">not available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">British Sign Language</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Language Translation</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey">not available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Braille</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey">not available</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                </div>
-                <div style="margin-left: -40px" class="govuk-!-margin-top-3">
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li><span id="drive-through-1-hint">you need to book your test as soon as possible</span></li>
-                    <li><span id="drive-through-2-hint">you or someone you live with must drive to the test site by car, small van or motorbike (some sites do not accept motorbikes)</span></li>
-                    <li><span id="drive-through-4-hint">at some test sites, you may be able to ask a staff member to do the test for you</span></li>
-                  </ul>
-                  <span id="drive-through-4-hint">
-                    <strong>Your nearest test site by road is Camden The Forum - Mobile Unit</strong><br><br>
-                    "Drive Through Only", This test site is outdoors in the corner of Greenwood Place nearest the O2 Forum. It is not at the Greenwood Centre so please do not enter that building, Greenwood Place<br>
-                    Kentish Town<br>
-                    NW5 1LB<br>
-                    <strong>3.6 miles</strong> by road<br><br>
-                    179 appointments available.
-                  </span>
                 </div>
               </div>
               {% endif %}
@@ -92,13 +124,7 @@
                 <label class="govuk-label govuk-radios__label" for="way-to-test-2">
                   <span class="govuk-body-l"><strong>At a walk-through test site</strong></span>
                 </label>
-                <div style="margin-left: -40px" class="govuk-!-margin-top-3">
-                <ul class="govuk-list govuk-list--bullet">
-                  <li><span id="walk-in-1-hint">you need to book your test slot as soon as possible</span></li>
-                  <li><span id="walk-in-2-hint">do not travel to the test site by public transport or taxi</span></li>
-                  <li><span id="walk-in-3-hint">you can choose to go by foot, bike or car (parking may not be available on site)</span></li>
-                  <li><span id="walk-in-5-hint">you can ask for a staff member to guide you as you do this test yourself</span></li>
-                  </ul>
+                <div style="margin-left: -25px; margin-top: -10px;" class="govuk-!-margin-top-3">
                   <span id="walk-in-5-hint" class="govuk-body-m">
                     <strong>Your nearest test site by road is Alexandra Palace Paddock - Walk through site</strong><br><br>
                     Alexandra Palace Paddock Car Park No 7 & 8<br>
@@ -107,6 +133,67 @@
                     <strong>2.6 miles</strong> by road<br><br>
                     208 appointments available.
                   </span>
+                </div>
+                <div style="margin-left: -30px"class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+                  <div class="govuk-accordion__section ">
+                    <div class="govuk-accordion__section-header">
+                      <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                          What's available at this site?
+                        </span>
+                      </h2>
+                    </div>
+                    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                      <table class="govuk-table" style="border-color: #b1b4b6">
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Step free and wheelchair accessible</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey">not available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Large bays for wheelchairs and families</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Public toilets</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Accessible toilets</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Assisted testing - Drive through only<br>This is when staff can do the swab for you</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Guided testing<br>This is where staff guide you</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey">not available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Easy read instructions</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey">not available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Large print instructions</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">British Sign Language</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Language Translation</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <td style="font-size: 21px"class="govuk-table__cell">Braille</td>
+                            <td style="text-align: right;" class="govuk-table__cell"><span class="govuk-tag">available</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
               {% endif %}
