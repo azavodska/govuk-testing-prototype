@@ -1096,6 +1096,10 @@ a.card__body {
 
 //Accessibility
 
+.invisible-link .govuk-accordion__open-all {
+  display: none;
+}
+
 .accessibility-needs-label {
   width: 100%;
 }
