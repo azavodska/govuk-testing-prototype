@@ -5,10 +5,7 @@
 
 {% block beforeContent %}
 
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.go(-1);"
-  }) }}
+<a class="govuk-back-link" href="/litereg-accounts/{{version}}/fingerprick-test">Back</a>
 
 {% endblock %}
 
@@ -94,7 +91,7 @@
           </dd>
         </div>
         {% if data['kit-barcode-reference-1'] != 'LHE00000501' and data['kit-barcode-reference-1'] != 'COE00000501' %}
-        
+
         {% if data['test-place'] == 'At a test site or government quarantine hotel' %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -377,6 +374,40 @@
         {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            {% if data['whos-taking-the-test'] == "someone-else" %}
+            Do they have any symptoms?
+            {% else %}
+            Do you have any symptoms?
+            {% endif %}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['do-you-have-symptoms'] or 'No' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/litereg-accounts/{{version}}/country">
+              Change
+              <span class="govuk-visually-hidden">Do you have symptoms?</span>
+            </a>
+          </dd>
+        </div>
+        {% if data['do-you-have-symptoms'] == "Yes" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date symptoms started
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['when-did-symptoms-start'] or '15th July 2021' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/litereg-accounts/{{version}}/country">
+              Change
+              <span class="govuk-visually-hidden">when did symptoms start</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Country of residence
           </dt>
           <dd class="govuk-summary-list__value">
@@ -514,7 +545,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['vaccine'] }}
- 
+
               {% if data['vaccine-month'] == "1" or data['vaccine-month'] == "01" %}
               1 dose, January {{ data['vaccine-year'] }}
               {% elseif data['vaccine-month'] == "2" or data['vaccine-month'] == "02" %}
@@ -592,6 +623,21 @@
           </dd>
         </div>
         {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Agreed to do antibody tests
+          </dt>
+           <dd class="govuk-summary-list__value">
+            {{ data['fingerprick-test'] or 'No' }}
+           </dd>
+         <dd class="govuk-summary-list__actions">
+            <a href="/litereg-accounts/{{version}}/fingerprick-test">
+              Change
+              <span class="govuk-visually-hidden">fingerprick test</span>
+            </a>
+          </dd>
+        </div>
+
       </dl>
 
       <form action="/litereg-accounts/{{version}}/confirmation" method="post" novalidate>
