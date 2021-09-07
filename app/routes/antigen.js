@@ -10,19 +10,6 @@ function loadJSONFromFile(fileName, path = "app/data/") {
   return JSON.parse(jsonFile) // Return JSON as object
 }
 
-router.post('/antigen/v1/action3/reason-for-test-option-2', function (req, res) {
-  let reason = req.session.data['reason-for-test']
-  let whoAsked = req.session.data['who-asked-for-test']
-  if (reason == "None of the above"){
-    res.redirect('/antigen/v1/refer-and-triage/cannot-have-test')
-  } else if (whoAsked == "Contact tracers told me to get a test"){
-    res.redirect('/antigen/v1/refer-and-triage/contact-tracing-code')
-  } else {
-    res.redirect('/antigen/v1/refer-and-triage/')
-  }
-
-})
-
 router.post('/antigen/v1/action3/1-have-you-travelled-overseas-person-1', function (req, res) {
   let OverseasTravel = req.session.data['have-you-travelled-overseas-person-1']
   if (OverseasTravel == "No"){
@@ -48,12 +35,61 @@ router.post('/antigen/v2/action3/mobile-number', function (req, res) {
 
 // Version 2 - Antigen Refer and Triage - Do you have symptoms route
 
-router.post('/antigen/v2/action3/do-you-have-symptoms', function (req, res) {
+router.post('/antigen/v2/action3/do-you-have-symptoms-option-2', function (req, res) {
   let symptoms = req.session.data['do-you-have-symptoms']
+  let screenOption = req.session.data['screen-option']
   if (symptoms == "Yes"){
     res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start')
+  } else if (symptoms = "No" && screenOption == "option-2a") {
+    res.redirect('/antigen/v2/refer-and-triage/secondary-symptoms')
+  } else if (symptoms = "No" && screenOption == "option-2b") {
+    res.redirect('/antigen/v2/refer-and-triage/secondary-symptoms-option-2')
   } else {
+    res.redirect('/antigen/v2/refer-and-triage/secondary-symptoms')
+  }
+
+})
+
+
+// Version 2 - Antigen Refer and Triage - Do you have symptoms route
+
+router.post('/antigen/v2/action4/do-you-have-symptoms-option-2', function (req, res) {
+  let symptoms = req.session.data['do-you-have-symptoms-option-2']
+  if (symptoms == "none of the above"){
     res.redirect('/antigen/v2/refer-and-triage/follow-up-test')
+  } else {
+    res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start')
+  }
+
+})
+
+router.post('/antigen/v2/action6/do-you-have-symptoms', function (req, res) {
+  let symptoms = req.session.data['do-you-have-symptoms']
+  if (symptoms == "no symptoms"){
+    res.redirect('/antigen/v2/refer-and-triage/follow-up-test')
+  } else {
+    res.redirect('/antigen/v2/refer-and-triage/secondary-symptoms')
+  }
+
+})
+
+router.post('/antigen/v2/action/status-page', function (req, res) {
+  let screenOption = req.session.data['screen-option']
+  if (screenOption == "option-2" || screenOption == "option-2" ){
+    res.redirect('/antigen/v2/refer-and-triage/do-you-have-symptoms-option-2')
+  } else {
+    res.redirect('/antigen/v2/refer-and-triage/do-you-have-symptoms')
+  }
+
+})
+
+router.post('/antigen/v2/action3/secondary-symptoms', function (req, res) {
+  let symptoms = req.session.data['secondary-symptoms']
+  let mainSymptoms = req.session.data['do-you-have-symptoms']
+  if (symptoms == "none of the above" && mainSymptoms == "any other symptoms"){
+    res.redirect('/antigen/v2/refer-and-triage/follow-up-test')
+  } else {
+    res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start')
   }
 
 })
@@ -83,12 +119,35 @@ router.post('/antigen/v2/action3/when-did-symptoms-start', function (req, res) {
 
 })
 
+router.post('/antigen/v2/action3/when-did-symptoms-start-option-2', function (req, res) {
+  let dateOfOnset = req.session.data['date-of-onset']
+  let yearOfOnset = req.session.data['symptoms-start-date-year']
+  if (!dateOfOnset){
+    res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start-error-2-option-2')
+  } else if (dateOfOnset == "different" && yearOfOnset !== "2020" && yearOfOnset !== "2021"){
+    res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start-error-option-2')
+  } else {
+    res.redirect('/antigen/v2/refer-and-triage/government-pilot')
+  }
+
+})
+
 // Version 2 - Antigen Refer and Triage - When did symptoms start error route
 
 router.post('/antigen/v2/action3/when-did-symptoms-start-error', function (req, res) {
   let yearSymptomsStarted = req.session.data['symptoms-start-date-year']
   if (yearSymptomsStarted != "2021"){
     res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start-error')
+  } else {
+    res.redirect('/antigen/v2/refer-and-triage/government-pilot')
+  }
+
+})
+
+router.post('/antigen/v2/action3/when-did-symptoms-start-error-option-2', function (req, res) {
+  let yearSymptomsStarted = req.session.data['symptoms-start-date-year']
+  if (yearSymptomsStarted != "2021"){
+    res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start-error-option-2')
   } else {
     res.redirect('/antigen/v2/refer-and-triage/government-pilot')
   }
@@ -111,13 +170,13 @@ router.post('/antigen/v2/action3/when-did-symptoms-start-person-1', function (re
 // router.post('/antigen/v2/action3/when-did-symptoms-start', function (req, res) {
 //   let dateOfOnset = req.session.data['date-of-onset']
 //   let country = req.session.data['country']
-//   if (dateOfOnset == "31 March 2021" || 
-//       dateOfOnset == "30 March 2021" || 
-//       dateOfOnset == "21 March 2021" || 
+//   if (dateOfOnset == "31 March 2021" ||
+//       dateOfOnset == "30 March 2021" ||
+//       dateOfOnset == "21 March 2021" ||
 //       dateOfOnset == "20 March 2021" ||
 //       dateOfOnset == "19 March 2021" ||
 //       dateOfOnset == "18 March 2021" && country == "England" ||
-//       dateOfOnset == "18 March 2021" && country == "Northern Ireland" || 
+//       dateOfOnset == "18 March 2021" && country == "Northern Ireland" ||
 //       dateOfOnset == "17 March 2021" && country == "England" ||
 //       dateOfOnset == "17 March 2021" && country == "Northern Ireland"){
 //     res.redirect('/antigen/v2/refer-and-triage/government-pilot')
@@ -144,11 +203,14 @@ router.post('/antigen/v2/action3/follow-up-test', function (req, res) {
 router.post('/antigen/v2/action3/government-pilot', function (req, res) {
   let governmentPilot = req.session.data['professional-pilot']
   let symptoms = req.session.data['do-you-have-symptoms']
+  let secondarySymptoms = req.session.data['secondary-symptoms']
   let followUpTest = req.session.data['follow-up-test']
-  if (governmentPilot == "None of the above" && symptoms == "No" && followUpTest == "No") {
+  if (governmentPilot == "None of the above" && symptoms == "No" && followUpTest == "No" && secondarySymptoms == "No" ) {
+    res.redirect('/antigen/v2/refer-and-triage/reason-for-test')
+  } else if (governmentPilot == "None of the above" && symptoms == "No" && followUpTest == "No" && secondarySymptoms == undefined ) {
     res.redirect('/antigen/v2/refer-and-triage/reason-for-test')
   } else {
-    res.redirect('/antigen/v2/refer-and-triage/eligible')
+    res.redirect('/antigen/v2/refer-and-triage/')
   }
 })
 
@@ -160,7 +222,7 @@ router.post('/antigen/v2/action3/reason-for-test', function (req, res) {
   } else if (whoAsked == "Contact tracers told me to get a test"){
     res.redirect('/antigen/v2/refer-and-triage/contact-tracing-code')
   } else {
-    res.redirect('/antigen/v2/refer-and-triage/eligible')
+    res.redirect('/antigen/v2/refer-and-triage/')
   }
 
 })
@@ -170,7 +232,7 @@ router.post('/antigen/v2/action3/who-asked-for-test-CT', function (req, res) {
   if (whoAskedForTest == "None of the above"){
     res.redirect('/antigen/v2/refer-and-triage/cannot-have-test')
   } else {
-    res.redirect('/antigen/v2/refer-and-triage/eligible')
+    res.redirect('/antigen/v2/refer-and-triage/')
   }
 
 })
@@ -180,7 +242,7 @@ router.post('/antigen/v2/action3/who-asked-for-test-HR', function (req, res) {
   if (whoAskedForTest == "None of the above"){
     res.redirect('/antigen/v2/refer-and-triage/cannot-have-test')
   } else {
-    res.redirect('/antigen/v2/refer-and-triage/eligible')
+    res.redirect('/antigen/v2/refer-and-triage/')
   }
 
 })
@@ -190,7 +252,7 @@ router.post('/antigen/v2/action3/who-asked-for-test-OER', function (req, res) {
   if (whoAskedForTest == "None of the above"){
     res.redirect('/antigen/v2/refer-and-triage/cannot-have-test')
   } else {
-    res.redirect('/antigen/v2/refer-and-triage/eligible')
+    res.redirect('/antigen/v2/refer-and-triage/')
   }
 
 })
@@ -572,16 +634,25 @@ router.post('/antigen/v2/action3/address-person-1', function (req, res) {
 
 // Version 2 - Antigen Global Registration - NHS number known route
 
+// router.post('/antigen/v2/action3/nhs-number-known', function (req, res) {
+//   let nhsNumberKnown = req.session.data['nhs-number-known']
+//   let country = req.session.data['country']
+//   let birthYear = req.session.data['date-of-birth-year']
+//   if (nhsNumberKnown == "Yes"){
+//     res.redirect('/antigen/v2/global-registration/nhs-number')
+//   } else if (nhsNumberKnown == "No" && country == "England" && parseInt(birthYear) <= 2003 || nhsNumberKnown == "No" && country == "Scotland" && parseInt(birthYear) <= 2003) {
+//     res.redirect('/antigen/v2/global-registration/fingerprick-test')
+//   } else {
+//     res.redirect('/antigen/v2/global-registration/check-your-answers')
+//   }
+// })
+
 router.post('/antigen/v2/action3/nhs-number-known', function (req, res) {
   let nhsNumberKnown = req.session.data['nhs-number-known']
-  let country = req.session.data['country']
-  let birthYear = req.session.data['date-of-birth-year']
   if (nhsNumberKnown == "Yes"){
     res.redirect('/antigen/v2/global-registration/nhs-number')
-  } else if (nhsNumberKnown == "No" && country == "England" && parseInt(birthYear) <= 2003 || nhsNumberKnown == "No" && country == "Scotland" && parseInt(birthYear) <= 2003) {
-    res.redirect('/antigen/v2/global-registration/fingerprick-test')
   } else {
-    res.redirect('/antigen/v2/global-registration/check-your-answers')
+    res.redirect('/antigen/v2/global-registration/fingerprick-test')
   }
 })
 
@@ -598,13 +669,23 @@ router.post('/antigen/v2/action3/nhs-number-known-person-1', function (req, res)
   }
 })
 
+// router.post('/antigen/v2/action3/nhs-number', function (req, res) {
+//   let country = req.session.data['country']
+//   let birthYear = req.session.data['date-of-birth-year']
+//   if (country == "England" && parseInt(birthYear) <= 2003 || country == "Scotland" && parseInt(birthYear) <= 2003){
+//     res.redirect('/antigen/v2/global-registration/fingerprick-test')
+//   } else {
+//     res.redirect('/antigen/v2/global-registration/check-your-answers')
+//   }
+// })
+
 router.post('/antigen/v2/action3/nhs-number', function (req, res) {
   let country = req.session.data['country']
   let birthYear = req.session.data['date-of-birth-year']
   if (country == "England" && parseInt(birthYear) <= 2003 || country == "Scotland" && parseInt(birthYear) <= 2003){
     res.redirect('/antigen/v2/global-registration/fingerprick-test')
   } else {
-    res.redirect('/antigen/v2/global-registration/check-your-answers')
+    res.redirect('/antigen/v2/global-registration/fingerprick-test')
   }
 })
 

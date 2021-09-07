@@ -31,13 +31,13 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#error-1">Select a date symptoms started</a>
+              <a href="#error-1">Enter the date symptoms started</a>
             </li>
           </ul>
         </div>
       </div>
 
-      <form action="/antigen/{{version}}/action3/when-did-symptoms-start" method="post">
+      <form action="/antigen/{{version}}/action3/when-did-symptoms-start-option-2" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset govuk-!-margin-bottom-6" role="group" aria-describedby="symptoms-start-date-1-hint">
@@ -52,103 +52,100 @@
               </span>
             </p>
 
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  When to stay at home
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                If they have a <strong>high temperature, a new continuous cough,</strong> or <strong>loss or change to their sense of smell or taste,</strong> they and anyone they live with should <strong>stay at home</strong> until they get their result. They can leave home to get or post a test.<br><br>
-                If they do not have these symptoms they <strong>may not</strong> need to stay at home. Find out more: <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/when-to-self-isolate-and-what-to-do/" class="govuk-link" target="blank">when to self-isolate and what to do (opens in a new tab)</a>.
-              </div>
-            </details>
-
             <div class="govuk-radios govuk-radios--conditional govuk-!-margin-top-5" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="date-of-onset-1" name="date-of-onset" type="radio" value="25 August 2021" {{ checked("date-of-onset", "25 August 2021") }}>
+                <input class="govuk-radios__input" id="date-of-onset-1" name="date-of-onset" type="radio" value="4 August 2021" {{ checked("date-of-onset", "4 August 2021") }}>
                 <label class="govuk-label govuk-radios__label" for="date-of-onset-1">
-                  Wednesday, 25 August 2021
+                  Wednesday, 4 August 2021
                 </label>
             </div>
             <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="date-of-onset-2" name="date-of-onset" type="radio" value="24 August 2021" {{ checked("date-of-onset", "24 August 2021") }}>
+                <input class="govuk-radios__input" id="date-of-onset-2" name="date-of-onset" type="radio" value="3 August 2021" {{ checked("date-of-onset", "3 August 2021") }}>
                 <label class="govuk-label govuk-radios__label" for="date-of-onset-2">
-                  Tuesday, 24 August 2021
+                  Tuesday, 3 August 2021
                 </label>
             </div>
             <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="date-of-onset-3" name="date-of-onset" type="radio" value="23 August 2021" {{ checked("date-of-onset", "23 August 2021") }}>
+                <input class="govuk-radios__input" id="date-of-onset-3" name="date-of-onset" type="radio" value="2 August 2021" {{ checked("date-of-onset", "2 August 2021") }}>
                 <label class="govuk-label govuk-radios__label" for="date-of-onset-3">
-                  Monday, 23 August 2021
+                  Monday, 2 August 2021
                 </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="date-of-onset-4" name="date-of-onset" type="radio" value="22 August 2021" {{ checked("date-of-onset", "22 August 2021") }}>
+              <input class="govuk-radios__input" id="date-of-onset-4" name="date-of-onset" type="radio" value="1 August 2021" {{ checked("date-of-onset", "1 August 2021") }}>
               <label class="govuk-label govuk-radios__label" for="date-of-onset-4">
-                Sunday, 22 August 2021
+                Sunday, 1 August 2021
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="date-of-onset-5" name="date-of-onset" type="radio" value="21 August 2021" {{ checked("date-of-onset", "21 August 2021") }}>
+              <input class="govuk-radios__input" id="date-of-onset-5" name="date-of-onset" type="radio" value="31 July 2021" {{ checked("date-of-onset", "31 July 2021") }}>
               <label class="govuk-label govuk-radios__label" for="date-of-onset-5">
-                Saturday, 21 August 2021
+                Saturday, 31 July 2021
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="date-of-onset-6" name="date-of-onset" type="radio" value="20 August 2021" {{ checked("date-of-onset", "20 August 2021") }}>
+              <input class="govuk-radios__input" id="date-of-onset-6" name="date-of-onset" type="radio" value="30 July 2021" {{ checked("date-of-onset", "30 July 2021") }}>
               <label class="govuk-label govuk-radios__label" for="date-of-onset-6">
-                Friday, 20 August 2021
+                Friday, 30 July 2021
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="date-of-onset-7" name="date-of-onset" type="radio" value="19 August 2021" {{ checked("date-of-onset", "19 August 2021") }}>
+              <input class="govuk-radios__input" id="date-of-onset-7" name="date-of-onset" type="radio" value="29 July 2021" {{ checked("date-of-onset", "29 July 2021") }}>
               <label class="govuk-label govuk-radios__label" for="date-of-onset-7">
-                Thursday, 19 August 2021
+                Thursday, 29 July 2021
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="date-of-onset-8" name="date-of-onset" type="radio" value="18 August 2021" {{ checked("date-of-onset", "18 August 2021") }}>
+              <input class="govuk-radios__input" id="date-of-onset-8" name="date-of-onset" type="radio" value="28 July 2021" {{ checked("date-of-onset", "28 July 2021") }}>
               <label class="govuk-label govuk-radios__label" for="date-of-onset-8">
-                Wednesday, 18 August 2021
+                Wednesday, 28 July 2021
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="date-of-onset-9" name="date-of-onset" type="radio" value="different" data-aria-controls="conditional-date-of-onset" {{ checked("date-of-onset", "different") }}>
               <label class="govuk-label govuk-radios__label" for="date-of-onset-9">
-                Before 18 August 2021
+                Before 28 July 2021
               </label>
             </div>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-date-of-onset">
-              <span class="govuk-body"><strong>Enter the date symptoms started</strong></span>
-              <div class="govuk-date-input govuk-!-margin-top-4" id="symptoms-start-date">
-                <div class="govuk-date-input__item">
-                  <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="symptoms-start-date-day">
-                      Day
-                    </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="symptoms-start-date-day" name="symptoms-start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['symptoms-start-date-day'] }}">
-                  </div>
-                </div>
-                <div class="govuk-date-input__item">
-                  <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="symptoms-start-date-month">
-                      Month
-                    </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="symptoms-start-date-month" name="symptoms-start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['symptoms-start-date-month'] }}">
-                  </div>
-                </div>
-                <div class="govuk-date-input__item">
-                  <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="symptoms-start-date-year">
-                      Year
-                    </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="symptoms-start-date-year" name="symptoms-start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['symptoms-start-date-year'] }}">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" style="border-left: 5px solid #d4351c" id="conditional-date-of-onset">
+                <div>
+                  <span id="passport-issued-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Enter the date symptoms started
+                  </span>
+                  <div class="govuk-date-input govuk-!-margin-top-4" id="symptoms-start-date">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="symptoms-start-date-day">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="symptoms-start-date-day" name="symptoms-start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['symptoms-start-date-day'] }}">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="symptoms-start-date-month">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="symptoms-start-date-month" name="symptoms-start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['symptoms-start-date-month'] }}">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="symptoms-start-date-year">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="symptoms-start-date-year" name="symptoms-start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['symptoms-start-date-year'] }}">
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            </div>
+
+            <p class="govuk-body govuk-!-margin-top-6">
+              If they have a <strong>high temperature, a new continuous cough,</strong> or <strong>loss or change to their sense of smell or taste,</strong> they and anyone they live with should <strong>stay at home</strong> until they get their result. They can leave home to get or post a test.<br><br>
+              If they do not have these symptoms they <strong>may not</strong> need to stay at home. Find out more: <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/when-to-self-isolate-and-what-to-do/" class="govuk-link" target="blank">when to self-isolate and what to do (opens in a new tab)</a>.
+            </p>
 
             <!-- <details class="govuk-details govuk-!-margin-top-7" data-module="govuk-details">
               <summary class="govuk-details__summary">
@@ -184,8 +181,8 @@
     </div>
 
     <div class="proto-action big">
-      <a href="/antigen/{{version}}/refer-and-triage/when-did-symptoms-start-error-2-option-2">
-        <div class="proto-action-text govuk-!-font-size-19 govuk-!-padding-2 govuk-!-margin-left-3">Go to option 2</div>
+      <a href="/antigen/{{version}}/refer-and-triage/when-did-symptoms-start-error">
+        <div class="proto-action-text govuk-!-font-size-19 govuk-!-padding-2 govuk-!-margin-left-3">Go to option 1</div>
       </a>
     </div>
 
