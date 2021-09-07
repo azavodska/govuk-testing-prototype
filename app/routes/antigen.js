@@ -70,9 +70,7 @@ router.post('/antigen/v2/action6/do-you-have-symptoms', function (req, res) {
   } else if (symptoms == "none of the above") {
     res.redirect('/antigen/v2/refer-and-triage/follow-up-test')
   } else {
-    if (symptoms == "any other symptoms"){
-      res.redirect('/antigen/v2/refer-and-triage/secondary-symptoms')}
-    else {res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start')}
+    res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start')
   }
 
 })
