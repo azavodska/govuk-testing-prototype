@@ -67,8 +67,10 @@ router.post('/antigen/v2/action6/do-you-have-symptoms', function (req, res) {
   let symptoms = req.session.data['do-you-have-symptoms']
   if (symptoms == "any other symptoms"){
     res.redirect('/antigen/v2/refer-and-triage/secondary-symptoms')
-  } else {
+  } else if (symptoms == "none of the above") {
     res.redirect('/antigen/v2/refer-and-triage/follow-up-test')
+  } else {
+    res.redirect('/antigen/v2/refer-and-triage/when-did-symptoms-start')
   }
 
 })
