@@ -1,0 +1,57 @@
+{% set version = "v3" %}
+{% set pageTitle = "What is your flight, Eurostar or ferry number?" %}
+
+{% extends "includes/layout-intl-arrivals.html" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a class="govuk-back-link" href="/international-arrivals/{{version}}/arrival-date-person-1">Back</a>
+
+{% endblock %}
+
+{% block content %}
+{% include "includes/gtm-noscript.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is {{ data['first-name-person-1'] or 'Sophie' }} {{ data['last-name-person-1'] or 'Appleseed' }}'s flight, Eurostar or ferry number?</h1>
+
+      <form action="/international-arrivals/{{version}}/point-of-entry-person-1" method="post">
+        <p class="govuk-body">Check your travel details and documents to find this number.</p>
+
+
+        <fieldset class="govuk-fieldset">
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="flight-eurostar-ferry-person-1">
+              For example:
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Plane’s flight number: BA2490</li>
+                <li>Ferry name: Dover Seaways</li>
+                <li>Eurostar train number: 8245</li>
+              </ul>
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="flight-eurostar-ferry-person-1" name="flight-eurostar-ferry-person-1" type="text" value="{{ data['flight-eurostar-ferry-person-1'] }}">
+          </div>
+
+        </fieldset>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
