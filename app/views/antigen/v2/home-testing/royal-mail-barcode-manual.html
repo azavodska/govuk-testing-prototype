@@ -7,7 +7,7 @@
   <div class="govuk-phase-banner">
     <p class="govuk-phase-banner__content">
       <strong class="govuk-tag govuk-phase-banner__content__tag">
-        alpha
+        beta
       </strong>
       <span class="govuk-phase-banner__text">
         This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
@@ -24,26 +24,29 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/antigen/{{version}}/home-testing/enter-barcode-number" method="post">
+      <form action="/antigen/{{version}}/action2/royal-mail-barcode-manual" method="post">
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="enter-barcode-number-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="enter-barcode-number-hint enter-barcode-number-hint-2">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
                 {{ pageTitle }}
               </h1>
             </legend>
             <span id="enter-barcode-number-hint" class="govuk-body">
-              Enter the 13 character reference below the barcode.<br>
-              Enter numbers and letters only and not the # hashtag symbol.<br><br>
               The Royal Mail barcode should look like this:
             </span>
 
             <div class="govuk-!-margin-top-5 govuk-!-margin-bottom-5">
-              <img src="/public/images/royal-mail-barcode.png" class="responsive-image" alt="barcode number"/>
+              <img src="/public/images/royal-mail-barcode.png" class="responsive-image" alt="Image of the Royal Mail barcode"/>
             </div>
 
-            <div id="content-1">
+            <span id="enter-barcode-number-hint-2" class="govuk-body">
+              Enter the 13 character reference below the barcode.<br>
+              Enter numbers and letters only and not the # hashtag symbol.
+            </span>
+
+            <div id="content-1" class="govuk-!-margin-top-5">
               <div class="govuk-form-group">
                 <label class="govuk-label" for="mail-barcode-reference-1">
                   Royal Mail barcode reference<br>
@@ -59,7 +62,7 @@
               </div>
             </div>
 
-            <div id="content-2" style="display: none;">
+            <div id="content-2" style="display: none;" class="govuk-!-margin-top-5">
 
             </div>
 

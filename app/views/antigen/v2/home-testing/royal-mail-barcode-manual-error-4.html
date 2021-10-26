@@ -15,7 +15,7 @@
     </p>
   </div>
 
-  <a class="govuk-back-link" href="/litereg-accounts/{{version}}/royal-mail-barcode">Back</a>
+  <a class="govuk-back-link" href="/antigen/{{version}}/home-testing/royal-mail-barcode">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -24,42 +24,69 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/litereg-accounts/{{version}}/test-date" method="post">
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#error-1">Royal Mail barcode reference is incorrect or already registered</a>
+            </li>
+            <li>
+              <a href="#error-2">Royal Mail barcode references must match</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <form action="/antigen/{{version}}/action2/royal-mail-barcode-manual" method="post">
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="enter-barcode-number-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="enter-barcode-number-hint enter-barcode-number-hint-2">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
                 {{ pageTitle }}
               </h1>
             </legend>
             <span id="enter-barcode-number-hint" class="govuk-body">
-              Enter the 13 character reference below the barcode.<br>
-              Enter numbers and letters only and not the # hashtag symbol.<br><br>
               The Royal Mail barcode should look like this:
             </span>
 
             <div class="govuk-!-margin-top-5 govuk-!-margin-bottom-5">
-              <img src="/public/images/royal-mail-barcode.png" class="responsive-image-long" alt="Image of the Royal Mail barcode on the right-hand side of the label on your return box"/>
+              <img src="/public/images/royal-mail-barcode.png" class="responsive-image" alt="Image of the Royal Mail barcode"/>
             </div>
 
-            <div id="content-1">
-              <div class="govuk-form-group">
+            <span id="enter-barcode-number-hint-2" class="govuk-body">
+              Enter the 13 character reference below the barcode.<br>
+              Enter numbers and letters only and not the # hashtag symbol.
+            </span>
+
+            <div id="content-1" class="govuk-!-margin-top-5">
+              <div class="govuk-form-group govuk-form-group--error">
                 <label class="govuk-label" for="mail-barcode-reference-1">
-                  Royal Mail barcode reference<br>
-                  <span class="govuk-hint">For example, ZD 6904 0038 5GB</span>
+                  Royal Mail barcode reference
                 </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="mail-barcode-reference-1" name="mail-barcode-reference-1" type="text" value={{ data['mail-barcode-reference-1'] }}>
+                <div id="national-insurance-number-hint" class="govuk-hint">
+                  For example, ZD 6904 0038 5GB
+                </div>
+                <span id="mail-barcode-reference-error-1" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Royal Mail barcode reference is incorrect or already registered
+                </span>
+                <input class="govuk-input govuk-!-width-two-thirds govuk-input--error" id="mail-barcode-reference-1" name="mail-barcode-reference-1" type="text" value={{ data['mail-barcode-reference-1'] }}>
               </div>
-              <div class="govuk-form-group">
+              <div class="govuk-form-group govuk-form-group--error">
                 <label class="govuk-label" for="mail-barcode-reference-2">
                   Confirm Royal Mail barcode reference
                 </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="mail-barcode-reference-2" name="mail-barcode-reference-2" type="text" value={{ data['mail-barcode-reference-2'] }}>
+                <span id="mail-barcode-reference-error-2" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Royal Mail barcode references must match
+                </span>
+                <input class="govuk-input govuk-!-width-two-thirds govuk-input--error" id="mail-barcode-reference-2" name="mail-barcode-reference-2" type="text" value={{ data['mail-barcode-reference-2'] }}>
               </div>
             </div>
 
-            <div id="content-2" style="display: none;">
+            <div id="content-2" style="display: none;" class="govuk-!-margin-top-5">
 
             </div>
 
