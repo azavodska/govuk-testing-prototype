@@ -523,6 +523,34 @@ router.post('/litereg-accounts/v2/action9/check-mobile', function (req, res) {
   }
 })
 
+// Version 2 - Royal mail barcode manual
+router.post('/litereg-accounts/v2/action5/royal-mail-barcode-manual', function (req, res) {
+  let barcodeReference = req.session.data['mail-barcode-reference-1']
+  let confirmBarcodeReference = req.session.data['mail-barcode-reference-2']
+
+  if (!barcodeReference && !confirmBarcodeReference || !barcodeReference && confirmBarcodeReference){
+    res.redirect('/litereg-accounts/v2/royal-mail-barcode-manual-error-1')
+  } else if (barcodeReference !== confirmBarcodeReference) {
+    res.redirect('/litereg-accounts/v2/royal-mail-barcode-manual-error-3')
+  } else {
+    res.redirect('/litereg-accounts/v2/test-date')
+  }
+})
+
+// Version 2 - Test kit barcode manual
+router.post('/litereg-accounts/v2/action5/enter-barcode-manual', function (req, res) {
+  let barcodeReference = req.session.data['kit-barcode-reference-1']
+  let confirmBarcodeReference = req.session.data['kit-barcode-reference-2']
+
+  if (!barcodeReference && !confirmBarcodeReference || !barcodeReference && confirmBarcodeReference){
+    res.redirect('/litereg-accounts/v2/enter-barcode-manual-error-1')
+  } else if (barcodeReference !== confirmBarcodeReference) {
+    res.redirect('/litereg-accounts/v2/enter-barcode-manual-error-3')
+  } else {
+    res.redirect('/litereg-accounts/v2/overseas-travel')
+  }
+})
+
 // Version 2 - Lite Registration Accounts - test place route
 router.post('/litereg-accounts/v2/action5/test-place', function (req, res) {
   let testPlace = req.session.data['test-place']
@@ -2032,6 +2060,39 @@ router.post('/share-result-lateral-flow/v19-2/action9/check-mobile', function (r
             res.redirect('/share-result-lateral-flow/v27/user-account/check-mobile-error')
           } else {
             res.redirect('/share-result-lateral-flow/v27/user-account/agreement')
+          }
+          })
+
+          // Version 28 - LDF self report accounts - Who's taking the test route
+
+          router.post('/share-result-lateral-flow/v28/action9/whos-taking-the-test', function (req, res) {
+            let person = req.session.data['whos-taking-the-test']
+            if (person == "myself") {
+              res.redirect('/share-result-lateral-flow/v28/coronavirus-account')
+            } else {
+              res.redirect('/share-result-lateral-flow/v28/country')
+            }
+          })
+
+          // Version 28 - LDF self report accounts - Create password route
+
+          router.post('/share-result-lateral-flow/v28/action9/create-password', function (req, res) {
+          let password = req.session.data['password']
+          let confirmPassword = req.session.data['confirm-password']
+          if (password == "" || confirmPassword == "") {
+            res.redirect('/share-result-lateral-flow/v28/user-account/create-password-error')
+          } else {
+            res.redirect('/share-result-lateral-flow/v28/user-account/check-email')
+          }
+          })
+
+          // Version 28 - LDF self report accounts - check mobile route
+          router.post('/share-result-lateral-flow/v28/action9/check-mobile', function (req, res) {
+          let securityCode = req.session.data['security-code']
+          if (securityCode == "") {
+            res.redirect('/share-result-lateral-flow/v28/user-account/check-mobile-error')
+          } else {
+            res.redirect('/share-result-lateral-flow/v28/user-account/agreement')
           }
           })
 
