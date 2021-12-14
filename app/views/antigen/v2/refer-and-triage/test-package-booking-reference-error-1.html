@@ -24,6 +24,19 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+          <h2 class="govuk-error-summary__title" id="error-summary-title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#booking-reference-error">Enter a day 2 travel test package booking reference</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <h1 class="govuk-heading-l">
           Travel test package booking reference
         </h1>
@@ -34,6 +47,7 @@
 
         <p class="govuk-body">
           It's the same number they used on their Passenger Locator Form (PLF). It will also be in their PLF confirmation email.
+
         </p>
 
         <p class="govuk-body">
@@ -44,16 +58,19 @@
           If they cannot find the booking reference, contact the travel test provider. If the provider cannot give the reference, call 119.
         </p>
 
-        <form action="/antigen/{{version}}/action3/test-package-booking-reference" method="post" novalidate>
+        <form action="/antigen/{{version}}/refer-and-triage/government-pilot" method="post" novalidate>
 
-          <div class="govuk-form-group">
+          <div class="govuk-form-group govuk-form-group--error">
             <label class="govuk-label govuk-label--m" for="test-package-booking-reference">
                 What is their day 2 travel test package booking reference?
             </label>
+            <span id="booking-reference-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter a day 2 travel test package booking reference
+            </span>
             <input class="govuk-input govuk-input--width-10" id="test-package-booking-reference" name="test-package-booking-reference" type="text" value="{{ data['test-package-booking-reference'] }}">
           </div>
 
-            <button class="govuk-button govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button">Continue without booking reference</button>
+    <button class="govuk-button govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button">Continue without booking reference</button>
 
           <button class="govuk-button" data-module="govuk-button">
             Continue
@@ -61,8 +78,6 @@
         </form>
       </div>
     </div>
-
-
 
 
 {% endblock %}

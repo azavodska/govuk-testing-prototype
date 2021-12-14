@@ -33,22 +33,35 @@
               </h1>
             </legend>
             <span id="antibody-test-person-1-hint" class="govuk-body">
-              If they test positive for COVID-19, and they agree to antibody testing, we may send them antibody tests.<br><br>
+              If you test positive for COVID-19, and you agree to antibody testing, we may send you antibody tests.<br><br>
               Antibody tests help the NHS learn how likely people are to get COVID-19 a second time or after a vaccination, and the impact of variants.<br><br>
-              Not everyone who tests positive for COVID-19 will be sent antibody tests because there is a limited number. If they are sent antibody tests, they will:<br><br>
+              Not everyone who tests positive for COVID-19 will be sent antibody tests because there is a limited number. If you are sent antibody tests, you will:<br><br>
               <ul class="govuk-list govuk-list--bullet">
-                <li>get a text telling them an antibody test is on its way</li>
-                <li>be posted 2 antibody tests 3 weeks apart to their home address</li>
-                <li>do a fingerprick blood test on themselves at home each time</li>
+                <li>get a text telling you an antibody test is on its way</li>
+                <li>be posted 2 antibody tests 3 weeks apart to your home address</li>
+                <li>do a fingerprick blood test on yourself at home each time</li>
                 <li>need to post back the completed antibody tests</li>
-                <li>get the test results sent to them</li>
+                <li>get the test results sent to you</li>
               </ul>
             </span>
-          </br></br>
 
+          <details class="govuk-details govuk-!-margin-bottom-2 govuk-!-margin-top-6" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Video: How to collect your blood sample
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <div class="govuk-!-margin-bottom-5 govuk-!-margin-top-4 videoWrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/BUgBOSgnMv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+          </details>
+        </br>
+        
             <div class="govuk-form-group">
               <label class="govuk-label govuk-label--m" for="test-package-booking-reference">
-                  Would John Smith also be willing to do 2 separate antibody tests?
+                  Would you also be willing to do 2 separate antibody tests?
               </label>
             </div>
 
@@ -56,7 +69,7 @@
               <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
               <strong class="govuk-warning-text__text">
                 <span class="govuk-warning-text__assistive">Warning</span>
-                By selecting Yes you confirm that they are OK doing a fingerprick blood test, and do not take anticoagulants ('blood-thinning' medicines) or have a blood clotting disorder such as haemophilia.
+                By selecting Yes you confirm that you are OK doing a fingerprick blood test, and do not take anticoagulants ('blood-thinning' medicines) or have a blood clotting disorder such as haemophilia.
               </strong>
             </div>
 
@@ -64,13 +77,13 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="fingerprick-test-1" name="fingerprick-test" type="radio" value="Yes" {{ checked("fingerprick-test", "Yes") }}>
                 <label class="govuk-label govuk-radios__label" for="fingerprick-test-1">
-                  Yes, they are willing to do the antibody tests
+                  Yes, I am willing to do the antibody tests
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="fingerprick-test-2" name="fingerprick-test" type="radio" value="No" {{ checked("fingerprick-test", "No") }}>
                 <label class="govuk-label govuk-radios__label" for="fingerprick-test-2">
-                  No, they are not not willing to do the antibody tests
+                  No, I am not willing to do the antibody tests
                 </label>
               </div>
             </div>

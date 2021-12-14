@@ -29,6 +29,19 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#nhs-number-error">Enter a valid NHS number</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <form action="/antigen/{{version}}/action3/nhs-number-known-person-1" method="post">
 
         <div class="govuk-form-group">
@@ -52,18 +65,22 @@
             <p class="govuk-!-margin-top-5"><a href="https://www.nhs.uk/nhs-services/online-services/find-nhs-number/" target="_blank">Look up NHS number (opens in new tab)</a></p>
             <br>
 
-            <div class="govuk-form-group govuk-!-margin-bottom-3">
+            <div class="govuk-form-group govuk-!-margin-bottom-3 govuk-form-group--error">
               <label class="govuk-label" for="nhs-number-person-1">
                 <strong>What is {{ data['first-name-person-1'] or "Jane" }} {{ data['last-name-person-1'] or "Wilson" }}'s NHS number?</strong>
               </label>
               <div id="nhs-number-hint" class="govuk-hint">
               A 10-digit number, for example, 485 777 3456
               </div>
-              <input class="govuk-input govuk-input--width-20" id="nhs-number-person-1" name="nhs-number-person-1" type="text" aria-describedby="nhs-number-hint" value="{{ data['nhs-number-person-1'] }}">
+              <span id="nhs-number-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Enter a valid NHS number
+              </span>
+              <input class="govuk-input govuk-input--width-20 govuk-input--error" id="nhs-number-person-1" name="nhs-number-person-1" type="text" aria-describedby="nhs-number-hint" value="{{ data['nhs-number-person-1'] }}">
             </div>
 
         
         </div>
+
 
         <div class="govuk-button-group">
           <button class="govuk-button" data-module="govuk-button">
