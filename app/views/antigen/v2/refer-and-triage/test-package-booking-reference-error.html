@@ -42,39 +42,36 @@
         </h1>
 
         <p class="govuk-body">
-          Look for this in the order confirmation email sent to you by your travel test provider.
+          Look for this in the order confirmation email sent by their travel test provider.
         </p>
 
         <p class="govuk-body">
-          It's the same number that you used on your Passenger Locator Form (PLF). It will also be in your PLF confirmation email.
+          It's the same number they used on their Passenger Locator Form (PLF). It will also be in their PLF confirmation email.
+
         </p>
 
         <p class="govuk-body">
           It is 12 digits long for example, DANTH0037300.
         </p>
 
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              If you cannot find your booking reference
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            Contact your travel test provider. If they cannot tell you your booking reference, call 119.
-          </div>
-        </details>
+        <p class="govuk-body">
+          If they cannot find the booking reference, contact the travel test provider. If the provider cannot give the reference, call 119.
+        </p>
+
 
         <form action="/antigen/{{version}}/refer-and-triage/government-pilot" method="post" novalidate>
 
           <div class="govuk-form-group govuk-form-group--error">
             <label class="govuk-label govuk-label--m" for="test-package-booking-reference">
-                What is your day 2 travel test package booking reference?
+                What is their day 2 travel test package booking reference?
             </label>
             <span id="booking-reference-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> Enter a valid day 2 travel test package booking reference
             </span>
             <input class="govuk-input govuk-input--width-10" id="test-package-booking-reference" name="test-package-booking-reference" type="text" value="{{ data['test-package-booking-reference'] }}">
           </div>
+
+    <button class="govuk-button govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button">Continue without booking reference</button>
 
           <button class="govuk-button" data-module="govuk-button">
             Continue
