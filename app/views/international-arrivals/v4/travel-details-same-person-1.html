@@ -15,7 +15,11 @@
   </p>
 </div>
 
-<a class="govuk-back-link" href="/international-arrivals/{{version}}/passport-number-person-1">Back</a>
+{% if data['red-country-travel'] == "Yes" %}
+<a class="govuk-back-link" href="/international-arrivals/{{version}}/people-confirmed-red">Back</a>
+{% else %}
+<a class="govuk-back-link" href="/international-arrivals/{{version}}/people-confirmed">Back</a>
+{% endif %}
 
 {% endblock %}
 
@@ -28,7 +32,7 @@
     <form action="/international-arrivals/{{version}}/action4/travel-details-same-person-1" method="post" novalidate>
 
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">
-        Are the next person's travel details the same as {{ data['first-name'] or 'Pete' }} {{ data['last-name'] or 'Appleseed' }}'s?
+        Are the next person's travel details the same as {{ data['first-name'] or 'Jon' }} {{ data['last-name'] or 'Appleseed' }}'s?
       </h1>
 
       <table class="govuk-table">

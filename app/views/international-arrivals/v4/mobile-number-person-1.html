@@ -28,27 +28,29 @@
       <form action="/international-arrivals/{{version}}/email-address-person-1" method="post">
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="mobile-number-person-1-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="mobile-number-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
                 What is {{ data['first-name-person-1'] or 'Sophie' }} {{ data['last-name-person-1'] or 'Appleseed' }}'s mobile phone number?
               </h1>
             </legend>
-            <span id="mobile-number-person-1-hint" class="govuk-body">
+            <div id="mobile-number-hint" class="govuk-hint">
               For international numbers, include the country code (for example, +33).
-            </span>
+            </div>
 
             <div class="govuk-form-group govuk-!-margin-top-5">
               <label class="govuk-label" for="mobile-phone-number-person-1">
                 Mobile number
               </label>
-              <input class="govuk-input govuk-!-width-two-thirds" id="mobile-phone-number-person-1" name="mobile-phone-number-person-1" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['mobile-phone-number-person-1'] }}">
+              <!-- <input class="govuk-input govuk-!-width-two-thirds" id="mobile-phone-number" name="mobile-phone-number" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['mobile-phone-number'] }}"> -->
+              <input class="govuk-input govuk-!-width-two-thirds" id="mobile-phone-number" name="mobile-phone-number" type="text" spellcheck="false" value="{{ data['mobile-phone-number'] }}">
             </div>
             <div class="govuk-form-group govuk-!-margin-top-2">
               <label class="govuk-label" for="mobile-phone-number-confirm-person-1">
                 Confirm mobile number
               </label>
-              <input class="govuk-input govuk-!-width-two-thirds" id="mobile-phone-number-confirm-person-1" name="mobile-phone-number-confirm-person-1" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['mobile-phone-number-confirm-person-1'] }}">
+              <!-- <input class="govuk-input govuk-!-width-two-thirds" id="mobile-phone-number-confirm" name="mobile-phone-number-confirm" type="text" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['mobile-phone-number-confirm'] }}"> -->
+              <input class="govuk-input govuk-!-width-two-thirds" id="mobile-phone-number-confirm" name="mobile-phone-number-confirm" type="text" spellcheck="false" value="{{ data['mobile-phone-number-confirm'] }}">
             </div>
 
           </fieldset>
