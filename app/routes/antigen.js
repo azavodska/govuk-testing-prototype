@@ -5209,16 +5209,16 @@ router.post('/antigen/v7/action3/security-check', function (req, res) {
 
 // Version 7- Antigen Refer and Triage - Do you have a car route
 
-router.post('/antigen/v7/action3/landline-number', function (req, res) {
+// outer.post('/antigen/v7/action3/landline-number', function (req, res) {
 
-  let emailAddress = req.session.data['email']
-  if (emailAddress == "Yes" ){
-    res.redirect('/antigen/v7/global-registration/gender')
-  } else {
-    res.redirect('/antigen/v7/global-registration/email-address')
-  }
+//  let emailAddress = req.session.data['email']
+//  if (emailAddress == "Yes" ){
+//    res.redirect('/antigen/v7/global-registration/gender')
+//  } else {
+//    res.redirect('/antigen/v7/global-registration/email-address')
+//  }
 
-})
+// })
 
 
 
