@@ -1,5 +1,5 @@
 {% set version = "v2" %}
-{% set pageTitle = "Where in the UK are you?" %}
+{% set pageTitle = "Where in the UK does the person needing a test live?" %}
 
 {% extends "includes/layout.html" %}
 
@@ -20,7 +20,7 @@
   {% else %}
   <a class="govuk-back-link" href="/antigen/{{version}}/refer-and-triage/coronavirus-vaccine">Back</a>
   {% endif %}
-
+  
 {% endblock %}
 
 {% block content %}
@@ -29,8 +29,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/antigen/{{version}}/refer-and-triage/guard-question" method="post">
-
+      <form action="/antigen/{{version}}/refer-and-triage/do-you-have-symptoms" method="post">
+      
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -38,9 +38,6 @@
                 {{ pageTitle }}
               </h1>
             </legend>
-
-            <p>If you're away from home, select the country where you're staying.</p>
-
             <div class="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="country-1" name="country" type="radio" value="England" {{ checked("country", "England") }}>
