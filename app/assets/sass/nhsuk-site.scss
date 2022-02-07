@@ -9061,67 +9061,73 @@ section+section>h2 {
   }
 
   .nhsuk-main-wrapper {
-      margin: 0 auto;
-      padding-top: 0!important;
-      width: 95%
-  }
+    margin: 0 auto;
+    padding-top: 0!important;
+    width: 95%
+}
 
-  .healthunlocked_wrapper>div {
-      border: 8px solid #212b32!important
-  }
+.healthunlocked_wrapper>div {
+    border: 8px solid #212b32!important
+}
 }
 
 .nhsuk-card__content.chevron {
-  padding-right: 20%;
+padding-right: 20%;
 }
 
 .beta-icon__chevron-right-circle {
-  position: absolute; 
-  top: 45%; 
-  right: 16px;
+position: absolute; 
+top: 45%; 
+right: 16px;
 }
 
 
 .nhsuk-card--clickable {
-  border-bottom-width: 4px;
+border-bottom-width: 4px;
+}
+
+@media (max-width: 40.0625em) {
+.nhsuk-card-group__item {
+  width: 100%;
+}
 }
 
 @media (min-width: 40.0625em) {
-  .nhsuk-card {
-    margin-bottom: 48px;
-  }
+.nhsuk-card {
+  margin-bottom: 48px;
+}
 }
 
 .nhsuk-card {
-  margin-bottom: 40px;
-  background: #fff;
-  border: 1px solid #d8dde0;
-  position: relative;
-  width: 100%;
+margin-bottom: 40px;
+background: #fff;
+border: 1px solid #d8dde0;
+position: relative;
+width: 100%;
 }
 
 .nhsuk-card--clickable {
-  border-bottom-width: 4px;
+border-bottom-width: 4px;
 }
 
 .nhsuk-card--clickable:active {
-  border-color: #aeb7bd;
-  bottom: -1px;
+border-color: #aeb7bd;
+bottom: -1px;
 }
 
 .nhsuk-card--clickable:hover,
 .nhsuk-card--clickable:active {
-  cursor: pointer;
+cursor: pointer;
 }
 
 .nhsuk-card--clickable:hover {
-  border-color: #aeb7bd;
+border-color: #aeb7bd;
 }
 
 .nhsuk-card--clickable:hover .nhsuk-card__heading a, 
 .nhsuk-card--clickable:hover .nhsuk-card__link, 
 .nhsuk-card--clickable:active .nhsuk-card__heading a, 
 .nhsuk-card--clickable:active .nhsuk-card__link {
-  color: #7C2855;
-  text-decoration: none;
+color: #7C2855;
+text-decoration: none;
 }

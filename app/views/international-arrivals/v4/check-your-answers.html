@@ -133,7 +133,7 @@ Appleseed{% set version = "v4" %}
             </a>
           </dd>
         </div>
-        {% if data['red-country-travel'] !== "Yes" %}
+        <!-- {% if data['red-country-travel'] !== "Yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Travel test package
@@ -148,7 +148,7 @@ Appleseed{% set version = "v4" %}
             </a>
           </dd>
         </div>
-        {% endif %}
+        {% endif %} -->
       </dl>
 
       <div style="display: flex; justify-content: space-between; align-items: flex-end;">
@@ -266,7 +266,7 @@ Appleseed{% set version = "v4" %}
             </a>
           </dd>
         </div>
-        {% if data['vaccine'] != "No" %}
+        {% if data['vaccine'] != "No" and data['vaccine'] %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             When did you have the vaccine?
@@ -384,6 +384,7 @@ Appleseed{% set version = "v4" %}
             </a>
           </dd>
         </div>
+        {% if data['registered-with-GP'] == "Yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Home address
@@ -399,6 +400,7 @@ Appleseed{% set version = "v4" %}
             </a>
           </dd>
         </div>
+        {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Medical record (male, female, other…)

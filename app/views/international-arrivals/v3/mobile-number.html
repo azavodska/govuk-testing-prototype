@@ -15,7 +15,7 @@
     </p>
   </div>
 
-  <a class="govuk-back-link" href="/international-arrivals/{{version}}/travel-route">Back</a>
+  <a class="govuk-back-link" href="/international-arrivals/{{version}}/point-of-entry">Back</a>
 
 {% endblock %}
 
@@ -28,15 +28,13 @@
       <form action="/international-arrivals/{{version}}/email-address" method="post">
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
+          <fieldset class="govuk-fieldset" aria-describedby="mobile-number-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
                 {{ pageTitle }}
               </h1>
             </legend>
-            <p class="govuk-body">
-              For international numbers, include the country code (for example, +33).
-            </p>
+            <p>If you have one, we'll send your test results to this mobile number.</p>
 
             <div class="govuk-radios govuk-radios--conditional govuk-!-margin-top-5" data-module="govuk-radios">
               <div class="govuk-radios__item">
@@ -50,6 +48,9 @@
                   <label class="govuk-label" for="mobile-phone-number">
                     Mobile number
                   </label>
+                  <div id="mobile-number-hint" class="govuk-hint">
+                    For international numbers, include the country code (for example, +33).
+                  </div>
                   <input class="govuk-input govuk-!-width-one-half" id="mobile-phone-number" name="mobile-phone-number" type="tel" value="{{ data['mobile-phone-number'] }}">
                 </div>
                 <div class="govuk-form-group">
@@ -62,7 +63,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="mobile-number-2" name="mobile-number" type="radio" value="No" {{ checked("mobile-number", "No") }}>
                 <label class="govuk-label govuk-radios__label" for="mobile-number-2">
-                  No, I don't have a mobile number
+                  No, I do not have a mobile number
                 </label>
               </div>
             </div>

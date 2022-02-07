@@ -136,7 +136,7 @@
             </a>
           </dd>
         </div>
-        {% if data['red-country-travel'] !== "Yes" %}
+        <!-- {% if data['red-country-travel'] !== "Yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Travel test package
@@ -151,7 +151,7 @@
             </a>
           </dd>
         </div>
-        {% endif %}
+        {% endif %} -->
       </dl>
 
       <div style="display: flex; justify-content: space-between; align-items: flex-end;">
@@ -281,13 +281,13 @@
             </a>
           </dd>
         </div>
-        {% if data['vaccine-person-1'] != "No" %}
+        {% if data['vaccine-person-1'] != "No" and data['vaccine'] %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            When did you have the vaccine?
+            When did they have the vaccine?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['vaccine-date-person-1'] }}
+            {{ data['vaccine-date-person-1'] or 'December 2020' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="/international-arrivals/{{version}}/vaccine-date">
@@ -399,6 +399,7 @@
             </a>
           </dd>
         </div>
+        {% if data['registered-with-GP-person-1'] == "Yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Home address
@@ -414,6 +415,7 @@
             </a>
           </dd>
         </div>
+        {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Medical record (male, female, other…)

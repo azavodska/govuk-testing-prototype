@@ -33,10 +33,10 @@
                 {{pageTitle}}
               </h1>
             </legend>
-            <span id="vaccine-date-hint" class="govuk-body">
+            <div id="vaccine-date-hint" class="govuk-hint">
               If you've only had 1 dose, tell us when you had this dose.<br><br>
               If you've had 2 doses, tell us when you had the second dose.
-            </span>
+            </div>
             <div class="govuk-radios govuk-radios--conditional govuk-!-margin-top-6" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="vaccine-date-1" name="vaccine-date" type="radio" value="Less than 7 days ago" {{ checked("vaccine-date", "Less than 7 days ago") }}>
@@ -61,13 +61,13 @@
                   <label class="govuk-label" for="vaccine-date-input-1" >
                     Month
                   </label>
-                  <input class="govuk-input govuk-!-width-one-third" id="vaccine-date-input-1" name="vaccine-date-input-1" type="tel" value="{{ data['vaccine-date-input-1'] }}">
+                  <input class="govuk-input govuk-!-width-one-third" id="vaccine-date-input-month" name="vaccine-date-input-month" type="tel" value="{{ data['vaccine-date-input-month'] }}">
                 </div>
                 <div class="govuk-form-group" style="display: inline-block; margin-left: -120px">
                   <label class="govuk-label" for="vaccine-date-input-2">
                     Year
                   </label>
-                  <input class="govuk-input govuk-!-width-one-third" id="vaccine-date-input-2" name="vaccine-date-input-2" type="tel" value="{{ data['vaccine-date-input-2'] }}">
+                  <input class="govuk-input govuk-!-width-one-third" id="vaccine-date-input-year" name="vaccine-date-input-year" type="tel" value="{{ data['vaccine-date-input-year'] }}">
                 </div>
               </div>
             </div>
