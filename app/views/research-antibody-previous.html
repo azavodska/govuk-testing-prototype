@@ -1,8 +1,4 @@
-{% set pageTitle = "Organisation based testing" %}
-{% set BulkOrderingHref = "bulk-ordering" %}
-{% set ElectiveCareHref = "elective-care" %}
-{% set OrgBasedTestSettingsHref = "org-based-test-settings" %}
-
+{% set pageTitle = "Antibody Testing" %}
 <!DOCTYPE html>
 <!-- [if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><html lang="en" style="{{ html_style }}"> -->
   <head>
@@ -45,8 +41,7 @@
       </div>
 
       <div class="nhsuk-width-container nhsuk-header__container">
-        <h1 class="nhsuk-heading-xl white-text">Organisation Based Testing</h1>
-        <p class="nhsuk-body white-text">Digital testing products for public and private sector organisations.</p>
+        <h1 class="nhsuk-heading-xl white-text">{{ pageTitle }}</h1>
       </div>
 
     </header>
@@ -55,10 +50,13 @@
       <div class="nhsuk-width-container">
         <ol class="nhsuk-breadcrumb__list">
           <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/index-new.html">Home</a></li>
+          <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/individual-testing">Individual based services</a></li>
+          <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/antibody-testing">Antibody testing</a></li>
         </ol>
-        <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/index-new.html">Home</a></p>
+        <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/antibody-testing">Back to Antibody testing</a></p>
       </div>
     </nav>
+
     {% endblock %}
 
     {% block bodyStart %}
@@ -70,53 +68,61 @@
         <main class="nhsuk-main-wrapper {{ mainClasses }}" id="maincontent" role="main">
 
           {% block content %}
-          <h2 class="nhsuk-heading-l">Testing services</h2>
+          <h2 class="nhsuk-heading-l">In research</h2>
 
-          <ul class="nhsuk-grid-row nhsuk-card-group">
+          <p class="nhsuk-body">You'll find links to all of our research prototypes for Antibody testing here.</p> 
 
-
-            <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-              <div class="nhsuk-card nhsuk-card--clickable" onclick="location.href='{{ ElectiveCareHref }}';">
-                <div class="nhsuk-card__content">
-                  <h3 class="nhsuk-card__heading nhsuk-heading-m">
-                    <a class="nhsuk-card__link" href="{{ ElectiveCareHref }}">Elective Care</a>
-                  </h3>
-                  <p class="nhsuk-card__description">A service for NHS Trusts to request pre-registered tests to be sent to patients who have upcoming procedures. They can also manage results and cancel test orders.</p>
-                </div>
-              </div>
-            </li>
-
-            <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-              <div class="nhsuk-card nhsuk-card--clickable" onclick="location.href='{{ OrgBasedTestSettingsHref }}';">
-                <div class="nhsuk-card__content">
-                  <h3 class="nhsuk-card__heading nhsuk-heading-m">
-                    <a class="nhsuk-card__link" href="{{ OrgBasedTestSettingsHref }}">OBT registration</a>
-                  </h3>
-                  <p class="nhsuk-card__description">Services for Care Homes, Schools, Prisons and other org-based use cases. Service enables single and bulk registration of PCR tests and LFTs, along with the reporting of LFT results.</p>
-                </div>
-              </div>
-            </li>
-
-            <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-              <div class="nhsuk-card nhsuk-card--clickable" onclick="location.href='{{ BulkOrderingHref }}';">
-                <div class="nhsuk-card__content">
-                  <h3 class="nhsuk-card__heading nhsuk-heading-m">
-                    <a class="nhsuk-card__link" href="{{ BulkOrderingHref }}">Bulk ordering - Org-led testing (OLT)</a>
-                  </h3>
-                  <p class="nhsuk-card__description">Business users can bulk order test kits to be delivered to them via Salesforce, and onboarding of new organisations.</p>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-
-          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
-
-          <h3 class="nhsuk-heading-m">Feedback</h3>
-
-          <p class="nhsuk-body">
-            If you have any questions you can <a href="#">message us on Slack</a>. You will need a Slack account if you do not have one. Or you can <a href="#">contact us by email</a>.
-          </p>
+          <div class="bulleted-summary-list">
+            <div class="relative">
+              <h3 class="nhsuk-heading-m">
+                19th October 2021
+              </h3>
+              <p class="nhsuk-body"><a class="nhsuk-link right-link" href="#">See all changes on github</a></p>
+              <ul class="nhsuk-list spaced">
+                <li class="nhsuk-card nhsuk-card--clickable" onclick="location.href='#';">
+                  <strong><a class="nhsuk-link" href="#">TCP-345</a>: Follow-up test</strong> - copy changes
+                </li>
+                <li class="nhsuk-card nhsuk-card--clickable" onclick="location.href='#';">
+                  <strong><a class="nhsuk-link" href="#">TCP-346</a>: Postcode</strong> - copy changes
+                </li>
+                <li class="nhsuk-card nhsuk-card--clickable" onclick="location.href='#';">
+                  <strong><a class="nhsuk-link" href="#">TCP-345</a>: NHS Number</strong> - new screens, A/B testing
+                </li>
+              </ul>
+            </div>
+            <div class="relative">
+              <h3 class="nhsuk-heading-m">
+                14th October 2021
+              </h3>
+              <p class="nhsuk-body"><a class="nhsuk-link right-link" href="#">See all changes on github</a></p>
+              <ul class="nhsuk-list spaced">
+                <li class="nhsuk-card nhsuk-card--clickable" onclick="location.href='#';">
+                  <strong><a class="nhsuk-link" href="#">TCP-345</a>: Follow-up test</strong> - copy changes
+                </li>
+                <li class="nhsuk-card nhsuk-card--clickable" onclick="location.href='#';">
+                  <strong><a class="nhsuk-link" href="#">TCP-346</a>: Postcode</strong> - copy changes
+                </li>
+                <li class="nhsuk-card nhsuk-card--clickable" onclick="location.href='#';">
+                  <strong><a class="nhsuk-link" href="#">TCP-345</a>: NHS Number</strong> - new screens, A/B testing
+                </li>
+              </ul>
+            </div>
+            <div class="relative">
+              <h3 class="nhsuk-heading-m">
+                27th September 2021
+              </h3>
+              <p class="nhsuk-body"><a class="nhsuk-link right-link" href="#">See all changes on github</a></p>
+              <ul class="nhsuk-list spaced">
+                <li class="nhsuk-card nhsuk-card--clickable" onclick="location.href='#';">
+                  <strong><a class="nhsuk-link" href="#">TCP-367</a>: Follow-up test</strong> - copy changes
+                </li>
+                <li class="nhsuk-card nhsuk-card--clickable" onclick="location.href='#';">
+                  <strong><a class="nhsuk-link" href="#">TCP-346</a>: Postcode</strong> - copy changes
+                </li>
+              </ul>
+            </div>
+            <p class="govuk-body"><a class="nhsuk-link" href="#">Top</a></p>
+          </div>
 
           {% endblock %}
         </form>
