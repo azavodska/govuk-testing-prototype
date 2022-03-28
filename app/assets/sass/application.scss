@@ -56,7 +56,7 @@ $govuk-assets-path: '/govuk/assets/';
   }
   .responsive-image-center {
     height: auto;
-    width: 50%;
+    width: 44%;
     margin: 0;
   }
 }
@@ -1482,12 +1482,9 @@ white-space: nowrap!important;
   background: #0b0c0c;
 }
 
-@media (min-width: 40.0625em) {
-  .gem-c-modal-dialogue__box {
-      font-size: 19px;
-      font-size: 1.1875rem;
-      line-height: 1.3157894737;
-  }
+.gem-c-modal-dialogue__content-scanner {
+  padding: 15px 3.4em;
+  background: #fff;
 }
 
 .gem-c-modal-dialogue__content {
@@ -1495,7 +1492,20 @@ white-space: nowrap!important;
   background: #fff;
 }
 
-.gem-c-modal-dialogue__close-button {
+@media (min-width: 40.0625em) {
+  .gem-c-modal-dialogue__box {
+      font-size: 19px;
+      font-size: 1.1875rem;
+      line-height: 1.3157894737;
+  }
+  .gem-c-modal-dialogue__content,
+  .gem-c-modal-dialogue__content-scanner {
+    padding: 15px;
+  }
+}
+
+.gem-c-modal-dialogue__close-button,
+a.gem-c-modal-dialogue__close-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -1520,11 +1530,25 @@ white-space: nowrap!important;
 .gem-c-modal-dialogue__close-button:active,
 .gem-c-modal-dialogue__close-button:visited,
 .gem-c-modal-dialogue__close-button:focus,
-.gem-c-modal-dialogue__close-button:hover {
+.gem-c-modal-dialogue__close-button:hover,
+a.gem-c-modal-dialogue__close-button:active,
+a.gem-c-modal-dialogue__close-button:visited,
+a.gem-c-modal-dialogue__close-button:focus,
+a.gem-c-modal-dialogue__close-button:hover {
   background: none;
   color: #fff;
   text-decoration: none;
   border: 0;
   cursor: pointer;
   box-shadow: none;
+}
+
+.mobile-optimised-link {
+  text-align: center;
+}
+
+@media (min-width: 40.0625em) {
+  .mobile-optimised-link {
+    text-align: left;
+  }
 }
