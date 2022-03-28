@@ -1515,16 +1515,16 @@ a.gem-c-modal-dialogue__close-button {
   color: #fff;
   background: none;
   cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
   font-family: "GDS Transport",arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 24px;
+  font-size: 2.4rem;
   line-height: 1.3;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .gem-c-modal-dialogue__close-button:active,
